@@ -51,11 +51,8 @@ using System.Web;
 //                  Khach_hang: Ho_ten, Dia_chi, So_Dien_thoai
 //          Danh_sach_Ban_hang:
 //            * Ban_hang : Ngay,So_luong,Don_gia,Tien
-//       	  Nhan_vien :Ma_so,Ho_ten,Ten_Dang_nhap,Mat_khau
-//          		Nhom_Nhan_vien:Ma_so,Ten
-//          		Cua_hang:Ma_so,Ten, Dia_chi, So_dien_thoai
 //          Danh_sach_Nhap hang:
-//            * Nhap_hang : Ngay,So_luong,Don_gia,Tien
+//            * Ban_hang : Ngay,So_luong,Don_gia,Tien
 #endregion
 
 #region "********Dữ liệu của Phân hệ Khách Tham quan ***********"

@@ -164,6 +164,8 @@
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_8.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_80.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_9.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_1.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_2.xml" />
     <Content Include="Media\LAPTOP_1.png" />
     <Content Include="Media\LAPTOP_10.png" />
     <Content Include="Media\LAPTOP_11.png" />
@@ -273,6 +275,7 @@
     <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Giao_hang.cshtml" />
     <Content Include="1-Dich_vu_Giao_tiep\DV_Quan_ly_Giao_hang.cshtml" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

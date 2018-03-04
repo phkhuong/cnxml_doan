@@ -120,14 +120,14 @@ public partial class XL_NGHIEP_VU
         var Tai_lieu = new XmlDocument();
         Tai_lieu.LoadXml(Chuoi_XML);
         var Du_lieu_He_khach = Tai_lieu.DocumentElement;
-        var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
-        foreach (XmlElement Laptop_He_khach in Du_lieu_He_khach.SelectNodes("//Laptop"))
-        {
-            var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];
-            var Danh_sach_Nhap_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
-            Laptop_He_khach.RemoveChild(Danh_sach_Ban_hang);
-            Laptop_He_khach.RemoveChild(Danh_sach_Nhap_hang);
-        }
+        //var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
+        //foreach (XmlElement Laptop_He_khach in Du_lieu_He_khach.SelectNodes("//Laptop"))
+        //{
+        //    var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];
+        //    var Danh_sach_Nhap_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
+        //    Laptop_He_khach.RemoveChild(Danh_sach_Ban_hang);
+        //    Laptop_He_khach.RemoveChild(Danh_sach_Nhap_hang);
+        //}
 
         return Du_lieu_He_khach;
     }
@@ -137,15 +137,15 @@ public partial class XL_NGHIEP_VU
         var Tai_lieu = new XmlDocument();
         Tai_lieu.LoadXml(Chuoi_XML);
         var Du_lieu_He_khach = Tai_lieu.DocumentElement;
-        var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
-        foreach (XmlElement Laptop_He_khach in Du_lieu_He_khach.SelectNodes("//Laptop"))
-        {
-            var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];
-            var Danh_sach_Nhap_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
-            Laptop_He_khach.RemoveChild(Danh_sach_Ban_hang);
-            Laptop_He_khach.RemoveChild(Danh_sach_Nhap_hang);
+        //var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
+        //foreach (XmlElement Laptop_He_khach in Du_lieu_He_khach.SelectNodes("//Laptop"))
+        //{
+        //    var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];
+        //    var Danh_sach_Nhap_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
+        //    Laptop_He_khach.RemoveChild(Danh_sach_Ban_hang);
+        //    Laptop_He_khach.RemoveChild(Danh_sach_Nhap_hang);
 
-        }
+        //}
 
         return Du_lieu_He_khach;
     }
@@ -211,6 +211,7 @@ public partial class XL_LUU_TRU
     static DirectoryInfo Thu_muc_Du_lieu = Thu_muc_Project.GetDirectories("2-Du_lieu_Luu_tru")[0];
     static DirectoryInfo Thu_muc_Cong_ty = Thu_muc_Du_lieu.GetDirectories("Cong_ty")[0];
     static DirectoryInfo Thu_muc_Laptop = Thu_muc_Du_lieu.GetDirectories("Laptop")[0];
+    static DirectoryInfo Thu_muc_Phieu_dat = Thu_muc_Du_lieu.GetDirectories("Phieu_dat")[0];
     static XmlElement Du_lieu;
     public static XmlElement Doc_Du_lieu()
     {   if (Du_lieu == null)
@@ -223,6 +224,8 @@ public partial class XL_LUU_TRU
             Du_lieu.AppendChild(Tai_lieu.ImportNode(Cong_ty, true));
             var Danh_sach_Laptop = Doc_Danh_sach_Laptop();
             Du_lieu.AppendChild(Tai_lieu.ImportNode(Danh_sach_Laptop, true));
+            var Danh_sach_Phieu_dat = Doc_Danh_sach_Phieu_dat();
+            Du_lieu.AppendChild(Tai_lieu.ImportNode(Danh_sach_Phieu_dat, true));
         }
         
         return Du_lieu;
@@ -258,6 +261,24 @@ public partial class XL_LUU_TRU
             var Cong_ty = Tai_lieu.DocumentElement;
             var Cong_ty_cua_Danh_sach = Tai_lieu_Danh_sach.ImportNode(Cong_ty, true);
             Danh_sach.AppendChild(Cong_ty_cua_Danh_sach);
+        });
+        return Danh_sach;
+    }
+
+    static XmlElement Doc_Danh_sach_Phieu_dat()
+    {
+        var Chuoi_XML_Danh_sach = "<Danh_sach_Phieu_dat />";
+        var Tai_lieu_Danh_sach = new XmlDocument();
+        Tai_lieu_Danh_sach.LoadXml(Chuoi_XML_Danh_sach);
+        var Danh_sach = Tai_lieu_Danh_sach.DocumentElement;
+        Thu_muc_Phieu_dat.GetFiles("*.xml").ToList().ForEach(Tap_tin =>
+        {
+            var Duong_dan = Tap_tin.FullName;
+            var Tai_lieu = new XmlDocument();
+            Tai_lieu.Load(Duong_dan);
+            var Phieu_dat = Tai_lieu.DocumentElement;
+            var Phieu_dat_cua_Danh_sach = Tai_lieu_Danh_sach.ImportNode(Phieu_dat, true);
+            Danh_sach.AppendChild(Phieu_dat_cua_Danh_sach);
         });
         return Danh_sach;
     }

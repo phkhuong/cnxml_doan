@@ -13,9 +13,9 @@
         Ma_so_Xu_ly = Request["Ma_so_Xu_ly"];// Nhận Tham số
         var Bo_doc = new StreamReader(Request.InputStream);
         var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
-        if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_QUAN_LY")
+        if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU")
         {
-            var Kq = XL_NGHIEP_VU.Tao_Du_lieu_cua_Quan_ly(Du_lieu);
+            var Kq = XL_NGHIEP_VU.Tao_Du_lieu_cua_Quan_ly_Giao_hang(Du_lieu);
             Chuoi_Kq = Kq.OuterXml;
         }
         else if (Ma_so_Xu_ly == "GHI_DAT_HANG_MOI")

@@ -1,0 +1,10 @@
+<Phieu_dat Ma_so="PHIEU_DAT_1" Ngay="2018-03-04" Tien="15490000" Tinh_trang="Chờ Phân công">
+	<Danh_sach_Laptop>
+		<Laptop 
+			Ma_so="LAPTOP_65" 
+			Ten="Máy xách tay/ Laptop Acer A515-51G-51EM (NX.GTCSV.002) (Đen)" 
+			Don_gia_Ban="15490000"
+			So_luong="1"
+		/>
+	</Danh_sach_Laptop>
+</Phieu_dat>
