@@ -1,0 +1,316 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2B94084-A787-40B6-B4EB-32F09FC09237}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cua_hang_Laptop_Dich_vu</RootNamespace>
+    <AssemblyName>Cua_hang_Laptop_Dich_vu</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="2-Du_lieu_Luu_tru\Cong_ty\Cong_ty.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_1.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_10.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_11.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_12.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_13.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_14.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_15.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_16.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_17.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_18.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_19.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_2.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_20.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_21.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_22.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_23.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_24.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_25.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_26.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_27.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_28.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_29.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_3.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_30.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_31.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_32.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_33.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_34.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_35.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_36.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_37.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_38.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_39.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_4.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_40.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_41.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_42.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_43.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_44.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_45.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_46.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_47.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_48.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_49.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_5.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_50.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_51.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_52.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_53.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_54.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_55.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_56.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_57.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_58.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_59.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_6.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_60.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_61.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_62.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_63.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_64.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_65.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_66.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_67.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_68.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_69.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_7.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_70.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_71.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_72.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_73.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_74.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_75.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_76.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_77.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_78.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_79.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_8.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_80.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_9.xml" />
+    <Content Include="Media\LAPTOP_1.png" />
+    <Content Include="Media\LAPTOP_10.png" />
+    <Content Include="Media\LAPTOP_11.png" />
+    <Content Include="Media\LAPTOP_12.png" />
+    <Content Include="Media\LAPTOP_13.png" />
+    <Content Include="Media\LAPTOP_14.png" />
+    <Content Include="Media\LAPTOP_15.png" />
+    <Content Include="Media\LAPTOP_16.png" />
+    <Content Include="Media\LAPTOP_17.png" />
+    <Content Include="Media\LAPTOP_18.png" />
+    <Content Include="Media\LAPTOP_19.png" />
+    <Content Include="Media\LAPTOP_2.png" />
+    <Content Include="Media\LAPTOP_20.png" />
+    <Content Include="Media\LAPTOP_21.png" />
+    <Content Include="Media\LAPTOP_22.png" />
+    <Content Include="Media\LAPTOP_23.png" />
+    <Content Include="Media\LAPTOP_24.png" />
+    <Content Include="Media\LAPTOP_25.png" />
+    <Content Include="Media\LAPTOP_26.png" />
+    <Content Include="Media\LAPTOP_27.png" />
+    <Content Include="Media\LAPTOP_28.png" />
+    <Content Include="Media\LAPTOP_29.png" />
+    <Content Include="Media\LAPTOP_3.png" />
+    <Content Include="Media\LAPTOP_30.png" />
+    <Content Include="Media\LAPTOP_31.png" />
+    <Content Include="Media\LAPTOP_32.png" />
+    <Content Include="Media\LAPTOP_33.png" />
+    <Content Include="Media\LAPTOP_34.png" />
+    <Content Include="Media\LAPTOP_35.png" />
+    <Content Include="Media\LAPTOP_36.png" />
+    <Content Include="Media\LAPTOP_37.png" />
+    <Content Include="Media\LAPTOP_38.png" />
+    <Content Include="Media\LAPTOP_39.png" />
+    <Content Include="Media\LAPTOP_4.png" />
+    <Content Include="Media\LAPTOP_40.png" />
+    <Content Include="Media\LAPTOP_41.png" />
+    <Content Include="Media\LAPTOP_42.png" />
+    <Content Include="Media\LAPTOP_43.png" />
+    <Content Include="Media\LAPTOP_44.png" />
+    <Content Include="Media\LAPTOP_45.png" />
+    <Content Include="Media\LAPTOP_46.png" />
+    <Content Include="Media\LAPTOP_47.png" />
+    <Content Include="Media\LAPTOP_48.png" />
+    <Content Include="Media\LAPTOP_49.png" />
+    <Content Include="Media\LAPTOP_5.png" />
+    <Content Include="Media\LAPTOP_50.png" />
+    <Content Include="Media\LAPTOP_51.png" />
+    <Content Include="Media\LAPTOP_52.png" />
+    <Content Include="Media\LAPTOP_53.png" />
+    <Content Include="Media\LAPTOP_54.png" />
+    <Content Include="Media\LAPTOP_55.png" />
+    <Content Include="Media\LAPTOP_56.png" />
+    <Content Include="Media\LAPTOP_57.png" />
+    <Content Include="Media\LAPTOP_58.png" />
+    <Content Include="Media\LAPTOP_59.png" />
+    <Content Include="Media\LAPTOP_6.png" />
+    <Content Include="Media\LAPTOP_60.png" />
+    <Content Include="Media\LAPTOP_61.png" />
+    <Content Include="Media\LAPTOP_62.png" />
+    <Content Include="Media\LAPTOP_63.png" />
+    <Content Include="Media\LAPTOP_64.png" />
+    <Content Include="Media\LAPTOP_65.jpg" />
+    <Content Include="Media\LAPTOP_65.png" />
+    <Content Include="Media\LAPTOP_66.jpg" />
+    <Content Include="Media\LAPTOP_66.png" />
+    <Content Include="Media\LAPTOP_67.jpg" />
+    <Content Include="Media\LAPTOP_67.png" />
+    <Content Include="Media\LAPTOP_68.jpg" />
+    <Content Include="Media\LAPTOP_68.png" />
+    <Content Include="Media\LAPTOP_69.jpg" />
+    <Content Include="Media\LAPTOP_69.png" />
+    <Content Include="Media\LAPTOP_7.png" />
+    <Content Include="Media\LAPTOP_70.jpg" />
+    <Content Include="Media\LAPTOP_70.png" />
+    <Content Include="Media\LAPTOP_71.jpg" />
+    <Content Include="Media\LAPTOP_71.png" />
+    <Content Include="Media\LAPTOP_72.jpg" />
+    <Content Include="Media\LAPTOP_72.png" />
+    <Content Include="Media\LAPTOP_73.jpg" />
+    <Content Include="Media\LAPTOP_73.png" />
+    <Content Include="Media\LAPTOP_74.jpg" />
+    <Content Include="Media\LAPTOP_74.png" />
+    <Content Include="Media\LAPTOP_75.jpg" />
+    <Content Include="Media\LAPTOP_75.png" />
+    <Content Include="Media\LAPTOP_76.jpg" />
+    <Content Include="Media\LAPTOP_76.png" />
+    <Content Include="Media\LAPTOP_77.jpg" />
+    <Content Include="Media\LAPTOP_77.png" />
+    <Content Include="Media\LAPTOP_78.jpg" />
+    <Content Include="Media\LAPTOP_78.png" />
+    <Content Include="Media\LAPTOP_79.jpg" />
+    <Content Include="Media\LAPTOP_79.png" />
+    <Content Include="Media\LAPTOP_8.png" />
+    <Content Include="Media\LAPTOP_80.jpg" />
+    <Content Include="Media\LAPTOP_80.png" />
+    <Content Include="Media\LAPTOP_9.png" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="3-Doi_tuong_va_Xu_ly\3A-Mo_hinh_Doi_tuong.cs" />
+    <Compile Include="3-Doi_tuong_va_Xu_ly\3B-Xu_ly_3L.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Khach_tham_quan.cshtml" />
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Ban_hang.cshtml" />
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Giao_hang.cshtml" />
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Quan_ly_Giao_hang.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61828</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61828/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,27 @@
+
+        <Laptop 
+          Ma_so="LAPTOP_23" 
+          Ten="Máy xách tay/ Laptop HP 14-bs562TU (2GE30PA) (Bạc)" 
+          Don_gia_Ban="9690000"
+          Don_gia_Nhap="8590000" 
+          CPU="i3-6006U"
+          Card_Man_hinh_Onboard="Intel HD Graphics 520"
+          He_dieu_hanh="Free DOS" 
+          Trong_luong="1.6 " 
+          Bao_hanh="12"
+        >
+          <Nhom_Lap_top Ma_so="HP" Ten="HP" />
+          <Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia"/>
+          <CPU_Series Ma_so="INTEL_CORE_I3_6TH_GEN" Ten="Intel Core i3 6th Gen" />
+          <Chuan_Man_hinh Ma_so="HD" Ten="HD"/>
+          <Mau_sac Ma_so="BAC" Ten="Bạc"/>
+          <Kich_thuoc_Man_hinh Ma_so="14_0" Ten="14.0&quot;"/>
+          <Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+          <Card_Man_hinh_Ngoai Ma_so="" Ten="" />
+          <HDD Ma_so="HDD_500GB" Ten="500GB"/>
+          <SSD Ma_so="" Ten=""/>
+          <Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+          <Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+          <Danh_sach_Nhap_hang><Nhap_hang Ngay="3/2/2018 12:43:50 PM" So_luong="10" Don_gia_Nhap="8590000" Tien="85900000" /></Danh_sach_Nhap_hang>
+        </Laptop>
+      

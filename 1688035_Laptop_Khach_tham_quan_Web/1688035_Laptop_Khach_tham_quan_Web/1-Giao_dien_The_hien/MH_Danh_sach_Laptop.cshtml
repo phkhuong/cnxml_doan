@@ -1,0 +1,102 @@
+﻿@using System.Xml;
+@{
+    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
+    Session["Chuc_nang_Chon"] = Path.GetFileName(Request.Path).Replace(".cshtml", "");
+    var Du_lieu = XL_LUU_TRU.Doc_Du_lieu();
+    var Cong_ty = (XmlElement)Du_lieu.GetElementsByTagName("Cong_ty")[0];
+    var Danh_sach_Laptop = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
+
+    //******************* Khai báo Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    var Chuoi_Tra_cuu = Session["Chuoi_Tra_cuu"].ToString();
+    if(Session["Danh_sach_Laptop_Xem"] == null)
+    {
+        Session["Danh_sach_Laptop_Xem"] = Danh_sach_Laptop;
+    }
+    var Danh_sach_Laptop_Xem = (XmlElement)Session["Danh_sach_Laptop_Xem"]; // Biến Kết quả 
+    //int So_luong = Danh_sach_Laptop.ChildNodes.Count;
+    if (Session["Danh_sach_Laptop_Chon"] == null)
+    {
+        var Tai_lieu = new XmlDocument();
+        Tai_lieu.LoadXml("<Danh_sach_Laptop_Chon />");
+        Session["Danh_sach_Laptop_Chon"] = Tai_lieu.DocumentElement;
+    }
+    var Danh_sach_Laptop_Chon = (XmlElement)Session["Danh_sach_Laptop_Chon"]; // Biến Kết quả 
+    //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
+    if (Chuoi_Tra_cuu != null)
+    {
+        Danh_sach_Laptop_Xem = XL_NGHIEP_VU.Tra_cuu_Laptop(Chuoi_Tra_cuu, Danh_sach_Laptop);
+        //So_luong = Danh_sach_Laptop_Xem.ChildNodes.Count;
+    }
+    if(Ma_so_Chuc_nang == "CHON")
+    {
+        var Ma_so_Laptop = Request["Th_Ma_so_Laptop"];
+        var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Danh_sach_Laptop_Chon);
+        if(Laptop == null)
+        {
+            var Laptop_Xem = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Danh_sach_Laptop);
+            var Laptop_Chon = (XmlElement)Danh_sach_Laptop_Chon.OwnerDocument.ImportNode(Laptop_Xem, true);
+            var Ban_hang = Laptop_Chon.OwnerDocument.CreateElement("Ban_hang");
+            Ban_hang.SetAttribute("So_luong", "1");
+            Laptop_Chon.AppendChild(Ban_hang);
+            Danh_sach_Laptop_Chon.AppendChild(Laptop_Chon);
+        }
+        else
+        {
+            var Ban_hang = (XmlElement)Laptop.GetElementsByTagName("Ban_hang")[0];
+            var So_luong = int.Parse(Ban_hang.GetAttribute("So_luong"));
+            So_luong++;
+            Ban_hang.SetAttribute("So_luong", So_luong.ToString());
+        }
+
+    }
+    else if(Ma_so_Chuc_nang == "HUY_CHON")
+    {
+        var Ma_so_Laptop = Request["Th_Ma_so_Laptop"];
+        var Laptop_Chon = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Danh_sach_Laptop_Chon);
+        Danh_sach_Laptop_Chon.RemoveChild(Laptop_Chon);
+    }
+    else if(Ma_so_Chuc_nang == "DAT_HANG")
+    {
+
+    }
+    //******************* Kết xuất  **********
+    var Chuoi_HTML_Danh_sach_Laptop_Xem = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Laptop_Xem(Danh_sach_Laptop_Xem);
+    var Chuoi_HTML_Danh_sach_Laptop_Chon = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Laptop_Chon(Danh_sach_Laptop_Chon);
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="DD_Xem_Danh_sach.css?v=@DateTime.Now.Ticks" type="text/css" />
+    <title></title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        @*<div>
+            Hiện tại có @So_luong sản phẩm
+            @if (Chuoi_Tra_cuu.Trim() != "")
+            {
+                <span>thỏa tiêu chí <strong>@Chuoi_Tra_cuu</strong></span>
+            }
+        </div>*@
+        <div class="DANH_SACH">
+            @Html.Raw(Chuoi_HTML_Danh_sach_Laptop_Chon)
+            @Html.Raw(Chuoi_HTML_Danh_sach_Laptop_Xem)
+        </div>
+            @*@if (So_luong > 0)
+            {
+                
+
+                
+            }*@
+    </div>
+</body>
+</html>

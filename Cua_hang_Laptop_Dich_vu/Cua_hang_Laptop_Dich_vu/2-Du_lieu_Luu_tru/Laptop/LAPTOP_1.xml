@@ -1,0 +1,64 @@
+<Laptop Ma_so="LAPTOP_1" Ten="Máy xách tay/ Laptop HP EliteBook X360 1030 G2 (1GY37PA) (Bạc)" Don_gia_Ban="43490000" Don_gia_Nhap="41590000" CPU="i7-7600U" Loai_Ram="DDR4 2133Mhz" Card_Man_hinh_Onboard="Intel HD Graphics 620" He_dieu_hanh="Windows 10" Trong_luong="1.28" Bao_hanh="12">
+	<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+	<Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia" />
+	<CPU_Series Ma_so="INTEL_CORE_I7_7TH_GEN" Ten="Intel Core i7 7th Gen" />
+	<Chuan_Man_hinh Ma_so="FHD" Ten="Full HD" />
+	<Mau_sac Ma_so="BAC" Ten="Bạc" />
+	<Kich_thuoc_Man_hinh Ma_so="13_3" Ten="13.3&quot;" />
+	<Dung_luong_Ram Ma_so="16" Ten="16GB" />
+	<Card_Man_hinh_Ngoai Ma_so="NVIDIA_GEFORCE_940MX" Ten="NVIDIA GeForce 940MX" />
+	<HDD Ma_so="" Ten="" />
+	<SSD Ma_so="SSD_512GB" Ten="512GB" />
+	<Danh_sach_Ban_hang>
+		<Ban_hang Ngay_Thanh_toan="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000">
+			<Nhan_vien Ma_so="NV_3" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_3" Mat_khau="NV_3">
+				<Nhom_Nhan_vien Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+				<Cua_hang Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+				<Danh_sach_Nhom_Lap_top>
+					<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+					<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+					<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+				</Danh_sach_Nhom_Lap_top>
+			</Nhan_vien>
+		</Ban_hang>
+		<Ban_hang Ngay="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000">
+			<Nhan_vien Ma_so="NV_5" Ho_ten="Nguyễn Trần K" Ten_Dang_nhap="NV_5" Mat_khau="NV_5">
+				<Nhom_Nhan_vien Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+				<Cua_hang Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
+				<Danh_sach_Nhom_Lap_top>
+					<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+					<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+					<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+				</Danh_sach_Nhom_Lap_top>
+			</Nhan_vien>
+		</Ban_hang>
+		<Ban_hang Ngay="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000">
+			<Nhan_vien Ma_so="NV_1" Ho_ten="Nguyễn thị bé Nhỏ" Ten_Dang_nhap="NV_1" Mat_khau="NV_1">
+				<Nhom_Nhan_vien Ma_so="BAN_HANG" Ten="Nhân viên Nhập hàng" />
+				<Cua_hang Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+				<Danh_sach_Nhom_Lap_top>
+					<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+					<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+					<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+				</Danh_sach_Nhom_Lap_top>
+			</Nhan_vien>
+		</Ban_hang>
+	</Danh_sach_Ban_hang>
+	<Danh_sach_Dat_hang>
+		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Phan_cong="09/01/2018 12:00:00 AM" Ngay_Thanh_toan="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_1" Trang_thai="DA_THANH_TOAN">
+			<Khach_hang Ho_ten="Nguyễn Văn C" Dia_chi="123 Phạm Ngũ Lão, Quận 1" So_Dien_thoai="012385640" />
+		</Dat_hang>
+		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_2" Trang_thai="CHO_PHAN_CONG">
+			<Khach_hang Ho_ten="Nguyễn Văn D" Dia_chi="123 Nguyễn Trãi, Quận 3" So_Dien_thoai="01358385" />
+		</Dat_hang>
+		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Phan_cong="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_3" Trang_thai="CHO_GIAO_HANG">
+			<Khach_hang Ho_ten="Nguyễn Văn E" Dia_chi="123 Lê Lợi, Quận 1" So_Dien_thoai="045720845" />
+		</Dat_hang>
+		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Huy="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_1" Trang_thai="HUY">
+			<Khach_hang Ho_ten="Nguyễn Văn F" Dia_chi="123 Trần Hưng Đạo, Quận 5" So_Dien_thoai="02752353" />
+		</Dat_hang>
+	</Danh_sach_Dat_hang>
+	<Danh_sach_Nhap_hang>
+		<Nhap_hang Ngay="3/2/2018 12:43:49 PM" So_luong="26" Don_gia_Nhap="41590000" Tien="1081340000" />
+	</Danh_sach_Nhap_hang>
+</Laptop>

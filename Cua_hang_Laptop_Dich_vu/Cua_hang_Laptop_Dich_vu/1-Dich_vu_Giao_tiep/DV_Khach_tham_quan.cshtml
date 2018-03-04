@@ -1,0 +1,36 @@
+﻿@using System.Xml;
+@{
+    // *********Khởi động Dữ liệu nguồn/nội bộ ********
+    var Du_lieu = XL_LUU_TRU.Doc_Du_lieu();
+
+    //*********Khai báo Biến/Đối tượng :Nhận & Kết quả *********
+    var Ma_so_Xu_ly = ""; // Biến Nhận
+    var Chuoi_Kq = ""; // Biến Kêt quả
+
+    //*********Xử lý Nhập liệu Nếu có + Tạo Kết quả Nếu Hợp lệ  *********
+    if (Request["Ma_so_Xu_ly"] != null)
+    {
+        Ma_so_Xu_ly = Request["Ma_so_Xu_ly"];// Nhận Tham số
+        var Bo_doc = new StreamReader(Request.InputStream);
+        var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
+        if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_KHACH_THAM_QUAN")
+        {
+            var Kq = XL_NGHIEP_VU.Tao_Du_lieu_cua_Khach_Tham_quan(Du_lieu);
+            Chuoi_Kq = Kq.OuterXml;
+        }
+        else if (Ma_so_Xu_ly == "GHI_DAT_HANG_MOI")
+        {
+            var Ma_so_Laptop = Request["Ma_so_Laptop"];
+            var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Du_lieu);
+            var Dat_hang = XL_NGHIEP_VU.Tao_Doi_tuong_Con(Chuoi_Nhan, Laptop);
+            Chuoi_Kq = XL_LUU_TRU.Ghi_Dat_hang_Moi(Laptop, Dat_hang);
+
+        }
+    }
+
+
+    // Xử lý trả Kết quả
+    Response.Write(Chuoi_Kq.ToString());
+}
+
+
