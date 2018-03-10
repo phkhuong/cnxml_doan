@@ -6,11 +6,51 @@
     var Danh_sach_Laptop =(XmlElement) Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
     var Danh_sach_Phieu_dat = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
 
+    // Hard-coded NHAN_VIEN
+    string selector = String.Format("//Nhan_vien[@Ma_so='{0}']", "NV_8");
+    XmlElement Nhan_vien = (XmlElement)Cong_ty.SelectSingleNode(selector);
+
+
+    XmlDocument doc = new XmlDocument();
+    doc.LoadXml("<Danh_sach_Phieu_dat />");
+    XmlElement Danh_sach_Phieu_dat_Nhan_vien = (XmlElement)doc.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
+
+    selector = String.Format("/Phieu_dat/Nhan_vien[@Ma_so='{0}']", Nhan_vien.GetAttribute("Ma_so"));
+    XmlNodeList Danh_sach_Phieu_dat_filtered = Danh_sach_Phieu_dat.SelectNodes(selector);
+
+    foreach(XmlNode node in Danh_sach_Phieu_dat_filtered)
+    {
+        XmlNode newNode = Danh_sach_Phieu_dat_Nhan_vien.OwnerDocument.ImportNode(node, true);
+        Danh_sach_Phieu_dat_Nhan_vien.AppendChild(newNode);
+    }
+
+
+    //var Danh_sach_Ma_so_Phieu_dat = (XmlElement)Nhan_vien.GetElementsByTagName("Danh_sach_Ma_so_Phieu_dat")[0];
+    //foreach(XmlElement Phieu in Danh_sach_Phieu_dat.GetElementsByTagName("Phieu_dat"))
+    //{
+
+    //    string tinh_trang = Phieu.GetAttribute("Tinh_trang");
+    //    if (tinh_trang == "Chờ Giao hàng")
+    //    {
+
+    //    }
+    //    selector = String.Format("Phieu_dat[@Ma_so='{0}']", maso);
+    //    XmlNode selectedNode = Danh_sach_Phieu_dat.SelectSingleNode(selector);
+
+    //    XmlNode newNode = Danh_sach_Phieu_dat_Nhan_vien.OwnerDocument.ImportNode(selectedNode, true);
+
+    //    Danh_sach_Phieu_dat_Nhan_vien.AppendChild(newNode);
+    //}
+
+
+
+
     //******************* Khai báo Biến  ********************
-    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat; // Biến Kết quả 
+    XmlElement Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat_Nhan_vien; // Biến Kết quả 
 
     //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
     Session["Chuoi_Tra_cuu"] = "";
+
 
     if (Request["Th_Chuoi_Tra_cuu"] != null)
     {

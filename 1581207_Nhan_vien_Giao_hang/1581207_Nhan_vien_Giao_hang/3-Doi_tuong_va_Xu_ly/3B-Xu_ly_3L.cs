@@ -52,6 +52,7 @@ public partial class XL_THE_HIEN
             var Ngay = Phieu_dat.GetAttribute("Ngay");
             var Ma_so = Phieu_dat.GetAttribute("Ma_so");
             var Tien = long.Parse(Phieu_dat.GetAttribute("Tien"));
+            var Tinh_trang = Phieu_dat.GetAttribute("Tinh_trang");
 
             //var Chuoi_Hinh = $"<div class='KHUNG_HINH mx-auto'>" +
             //                    $"<img src='{Dia_chi_Media}/{Ma_so}.png' class='img-thumbnail HINH'/>" +
@@ -60,6 +61,7 @@ public partial class XL_THE_HIEN
                                       $"<strong>{Ma_so}</strong>" +
                                       $"<br />Ngày đặt: {Ngay}" +
                                       $"<br />Đơn giá: { Tien.ToString("c0", Dinh_dang_VN) }" +
+                                      $"<br />Tình trạng: { Tinh_trang }" +
                                   $"</div>";
             var Chuoi_HTML = $"<div class='KHUNG col-6 col-sm-4 col-md-3 col-lg-2'>" +
                                  $"<div class='THONG_TIN'>" +
@@ -109,14 +111,14 @@ public partial class XL_LUU_TRU
 {
     
     public static string Dia_chi_Dich_vu = "http://localhost:61828";
-    static string Dia_chi_Dich_vu_Du_lieu = $"{Dia_chi_Dich_vu}/1-Dich_vu_Giao_tiep/DV_Quan_ly_Giao_hang.cshtml";
+    static string Dia_chi_Dich_vu_Du_lieu = $"{Dia_chi_Dich_vu}/1-Dich_vu_Giao_tiep/DV_Nhan_vien_Giao_hang.cshtml";
 
     public static  XmlElement  Doc_Du_lieu()
     {
         var Chuoi_XML = "<Du_lieu />";
         var Xu_ly = new WebClient();
         Xu_ly.Encoding = System.Text.Encoding.UTF8;
-        var Tham_so = "Ma_so_Xu_ly=KHOI_DONG_DU_LIEU";
+        var Tham_so = "Ma_so_Xu_ly=KHOI_DONG_DU_LIEU_NHAN_VIEN_GIAO_HANG";
         var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
         try
         {

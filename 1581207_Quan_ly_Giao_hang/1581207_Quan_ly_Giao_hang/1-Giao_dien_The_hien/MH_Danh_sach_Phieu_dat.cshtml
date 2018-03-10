@@ -6,31 +6,37 @@
     var Cong_ty = (XmlElement)Du_lieu.GetElementsByTagName("Cong_ty")[0];
     var Danh_sach_Laptop = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
     var Danh_sach_Phieu_dat = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
+    var Danh_sach_Nhan_vien = Cong_ty.SelectNodes("Danh_sach_Nhan_vien/Nhan_vien");
 
-    string selector = String.Format("//Nhan_vien[@Ma_so='{0}']", "NV_7");
-    var Nhan_vien = (XmlElement)Cong_ty.SelectSingleNode(selector);
-
+    // Hard-coded QUAN_LY
+    string selector = String.Format("//Quan_ly[@Ma_so='{0}']", "NV_16");
+    XmlElement Quan_ly = (XmlElement)Cong_ty.SelectSingleNode(selector);
+    string Ma_so_Cua_hang = Quan_ly.LastChild.Attributes["Ma_so"].Value;
 
     XmlDocument doc = new XmlDocument();
-    doc.LoadXml("<Danh_sach_Phieu_dat />");
-    XmlElement Danh_sach_Phieu_dat_Nhan_vien = (XmlElement)doc.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
+    doc.LoadXml("<Danh_sach_Nhan_vien />");
+    XmlElement Danh_sach_Nhan_vien_duoc_quan_ly = (XmlElement)doc.GetElementsByTagName("Danh_sach_Nhan_vien")[0];
 
-    var Danh_sach_Ma_so_Phieu_dat = (XmlElement)Nhan_vien.GetElementsByTagName("Danh_sach_Ma_so_Phieu_dat")[0];
-    foreach (XmlElement Phieu in Danh_sach_Ma_so_Phieu_dat.GetElementsByTagName("Phieu"))
+    foreach(XmlElement Nhan_vien in Danh_sach_Nhan_vien)
     {
-        string maso = Phieu.GetAttribute("Ma_so");
-        selector = String.Format("Phieu_dat[@Ma_so='{0}']", maso);
-        XmlNode selectedNode = Danh_sach_Phieu_dat.SelectSingleNode(selector);
+        string Ma_so_Nhom_Nhan_vien = Nhan_vien.FirstChild.Attributes["Ma_so"].Value;
 
-        XmlNode newNode = Danh_sach_Phieu_dat_Nhan_vien.OwnerDocument.ImportNode(selectedNode, true);
-
-        Danh_sach_Phieu_dat_Nhan_vien.AppendChild(newNode);
+        if (Ma_so_Nhom_Nhan_vien == "GIAO_HANG")
+        {
+            string Ma_so_cua_hang_Nhan_vien = Nhan_vien.LastChild.Attributes["Ma_so"].Value;
+            if (Ma_so_cua_hang_Nhan_vien == Ma_so_Cua_hang)
+            {
+                XmlNode newNode = doc.ImportNode(Nhan_vien, true);
+                Danh_sach_Nhan_vien_duoc_quan_ly.AppendChild(newNode);
+            }
+        }
     }
+
 
     //******************* Khai báo Biến  ********************
     var Chuoi_Tra_cuu = Session["Chuoi_Tra_cuu"].ToString();
-    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat_Nhan_vien;
-    int So_luong = Danh_sach_Phieu_dat_Nhan_vien.ChildNodes.Count;
+    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat;
+    int So_luong = Danh_sach_Phieu_dat.ChildNodes.Count;
 
     //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
     if (Chuoi_Tra_cuu != null)
@@ -40,7 +46,8 @@
     }
 
     //******************* Kết xuất  **********
-    var Chuoi_HTML_Danh_sach_Phieu_dat = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Phieu_dat(Danh_sach_Phieu_dat_Xem); ;
+    var Chuoi_HTML_Danh_sach_Phieu_dat = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Phieu_dat(Danh_sach_Phieu_dat_Xem);
+    var Chuoi_HTML_Danh_sach_Nhan_vien = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Nhan_vien(Danh_sach_Nhan_vien_duoc_quan_ly);
 }
 
 <!DOCTYPE html>
@@ -71,6 +78,11 @@
 
                 <div class="DANH_SACH">
                     @Html.Raw(Chuoi_HTML_Danh_sach_Phieu_dat)
+                </div>
+
+                <div class="DANH_SACH">
+                    <div>Nhân viên Giao hàng:</div>
+                    @Html.Raw(Chuoi_HTML_Danh_sach_Nhan_vien)
                 </div>
             }
         </form>

@@ -6,35 +6,16 @@
     var Danh_sach_Laptop =(XmlElement) Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
     var Danh_sach_Phieu_dat = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
 
-    string selector = String.Format("//Nhan_vien[@Ma_so='{0}']", "NV_7");
-    XmlElement Nhan_vien = (XmlElement)Cong_ty.SelectSingleNode(selector);
-    
-
-    XmlDocument doc = new XmlDocument();
-    doc.LoadXml("<Danh_sach_Phieu_dat />");
-    XmlElement Danh_sach_Phieu_dat_Nhan_vien = (XmlElement)doc.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
-
-    var Danh_sach_Ma_so_Phieu_dat = (XmlElement)Nhan_vien.GetElementsByTagName("Danh_sach_Ma_so_Phieu_dat")[0];
-    foreach(XmlElement Phieu in Danh_sach_Ma_so_Phieu_dat.GetElementsByTagName("Phieu"))
-    {
-        string maso = Phieu.GetAttribute("Ma_so");
-        selector = String.Format("Phieu_dat[@Ma_so='{0}']", maso);
-        XmlNode selectedNode = Danh_sach_Phieu_dat.SelectSingleNode(selector);
-
-        XmlNode newNode = Danh_sach_Phieu_dat_Nhan_vien.OwnerDocument.ImportNode(selectedNode, true);
-
-        Danh_sach_Phieu_dat_Nhan_vien.AppendChild(newNode);
-    }
-
-
+    // Hard-coded QUAN_LY
+    string selector = String.Format("//Quan_ly[@Ma_so='{0}']", "QL_1");
+    XmlElement Quan_ly = (XmlElement)Cong_ty.SelectSingleNode(selector);
 
 
     //******************* Khai báo Biến  ********************
-    XmlElement Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat_Nhan_vien; // Biến Kết quả 
+    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat; // Biến Kết quả 
 
     //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
     Session["Chuoi_Tra_cuu"] = "";
-
 
     if (Request["Th_Chuoi_Tra_cuu"] != null)
     {

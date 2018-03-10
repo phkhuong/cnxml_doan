@@ -120,7 +120,9 @@ public partial class XL_NGHIEP_VU
         var Tai_lieu = new XmlDocument();
         Tai_lieu.LoadXml(Chuoi_XML);
         var Du_lieu_He_khach = Tai_lieu.DocumentElement;
-        //var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
+        var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
+
+        // NULL REFERENCE
         //foreach (XmlElement Laptop_He_khach in Du_lieu_He_khach.SelectNodes("//Laptop"))
         //{
         //    var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];

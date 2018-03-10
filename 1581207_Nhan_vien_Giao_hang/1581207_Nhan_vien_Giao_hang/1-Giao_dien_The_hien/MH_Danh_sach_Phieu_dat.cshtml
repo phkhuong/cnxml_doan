@@ -7,10 +7,34 @@
     var Danh_sach_Laptop = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
     var Danh_sach_Phieu_dat = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
 
+    string selector = String.Format("//Nhan_vien[@Ma_so='{0}']", "NV_9");
+    var Nhan_vien = (XmlElement)Cong_ty.SelectSingleNode(selector);
+    string Ma_so_Nhan_vien = Nhan_vien.GetAttribute("Ma_so");
+
+    XmlDocument doc = new XmlDocument();
+    doc.LoadXml("<Danh_sach_Phieu_dat />");
+    XmlElement Danh_sach_Phieu_dat_Nhan_vien = (XmlElement)doc.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
+
+
+    foreach (XmlElement Phieu in Danh_sach_Phieu_dat.GetElementsByTagName("Phieu_dat"))
+    {
+        string tinh_trang = Phieu.GetAttribute("Tinh_trang");
+        if (tinh_trang == "Chờ Giao hàng")
+        {
+            var nhan_vien_giao = (XmlElement)Phieu.LastChild;
+            if (nhan_vien_giao.GetAttribute("Ma_so") == Ma_so_Nhan_vien)
+            {
+                var newNode = Danh_sach_Phieu_dat_Nhan_vien.OwnerDocument.ImportNode(Phieu, true);
+                Danh_sach_Phieu_dat_Nhan_vien.AppendChild(newNode);
+            }
+            
+        }       
+    }
+
     //******************* Khai báo Biến  ********************
     var Chuoi_Tra_cuu = Session["Chuoi_Tra_cuu"].ToString();
-    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat;
-    int So_luong = Danh_sach_Phieu_dat.ChildNodes.Count;
+    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat_Nhan_vien;
+    int So_luong = Danh_sach_Phieu_dat_Nhan_vien.ChildNodes.Count;
 
     //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
     if (Chuoi_Tra_cuu != null)

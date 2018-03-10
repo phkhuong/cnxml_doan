@@ -52,6 +52,14 @@ public partial class XL_THE_HIEN
             var Ngay = Phieu_dat.GetAttribute("Ngay");
             var Ma_so = Phieu_dat.GetAttribute("Ma_so");
             var Tien = long.Parse(Phieu_dat.GetAttribute("Tien"));
+            var Tinh_trang = Phieu_dat.GetAttribute("Tinh_trang");
+
+            var Chuoi_Nhan_vien_giao_hang = "";
+            if(Tinh_trang == "Chờ Giao hàng")
+            {
+                var Nhan_vien_giao_hang = Phieu_dat.LastChild.Attributes["Ho_ten"].Value;
+                Chuoi_Nhan_vien_giao_hang = $"<br />Nhân viên Giao hàng: { Nhan_vien_giao_hang }";
+            }
 
             //var Chuoi_Hinh = $"<div class='KHUNG_HINH mx-auto'>" +
             //                    $"<img src='{Dia_chi_Media}/{Ma_so}.png' class='img-thumbnail HINH'/>" +
@@ -60,10 +68,43 @@ public partial class XL_THE_HIEN
                                       $"<strong>{Ma_so}</strong>" +
                                       $"<br />Ngày đặt: {Ngay}" +
                                       $"<br />Đơn giá: { Tien.ToString("c0", Dinh_dang_VN) }" +
+                                      $"<br />Tình trạng: { Tinh_trang }" +
+                                      Chuoi_Nhan_vien_giao_hang +
                                   $"</div>";
-            var Chuoi_HTML = $"<div class='KHUNG col-6 col-sm-4 col-md-3 col-lg-2'>" +
+            var Chuoi_HTML = $"<div class='KHUNG col-6 col-sm-6 col-md-4 col-lg-3'>" +
                                  $"<div class='THONG_TIN'>" +
                                      
+                                     $"{Chuoi_Thong_tin}" +
+                                     $"<button type='button' class='btn btn-primary hidden-sm-down btn-block ADD_BUTTON'>CHI TIẾT</button>" +
+                                 $"</div>" +
+                             "</div>";
+            Chuoi_HTML_Danh_sach += Chuoi_HTML;
+        }
+
+        Chuoi_HTML_Danh_sach += "</div>";
+        return Chuoi_HTML_Danh_sach;
+    }
+
+    public static string Tao_Chuoi_HTML_Danh_sach_Nhan_vien(XmlElement Danh_sach_Nhan_vien)
+    {
+        var Chuoi_HTML_Danh_sach = "<div class='row'>";
+
+        foreach (XmlElement Nhan_vien in Danh_sach_Nhan_vien.GetElementsByTagName("Nhan_vien"))
+        {
+            
+            var Ma_so = Nhan_vien.GetAttribute("Ma_so");
+            var Ho_ten = Nhan_vien.GetAttribute("Ho_ten");
+
+            
+            var Chuoi_Thong_tin = $"<div>" +
+                                      $"<strong>{Ma_so}</strong>" +
+                                     
+                                      
+                                      $"<br />Họ tên: { Ho_ten }" +
+                                  $"</div>";
+            var Chuoi_HTML = $"<div class='KHUNG col-6 col-sm-6 col-md-4 col-lg-3'>" +
+                                 $"<div class='THONG_TIN'>" +
+
                                      $"{Chuoi_Thong_tin}" +
                                      $"<button type='button' class='btn btn-primary hidden-sm-down btn-block ADD_BUTTON'>CHI TIẾT</button>" +
                                  $"</div>" +
