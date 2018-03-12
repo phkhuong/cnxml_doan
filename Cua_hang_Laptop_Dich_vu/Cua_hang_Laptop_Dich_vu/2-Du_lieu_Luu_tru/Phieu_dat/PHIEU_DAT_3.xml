@@ -1,4 +1,4 @@
-<Phieu_dat Ma_so="PHIEU_DAT_3" Ngay="2018-03-03" Tien="48170000" Tinh_trang="Chờ Phân công">
+<Phieu_dat Ma_so="PHIEU_DAT_3" Ngay_Dat="09/01/2018 12:00:00 AM" Tien="48170000" Tinh_trang="CHO_PHAN_CONG">
 	<Danh_sach_Laptop>
 		<Laptop 
 			Ma_so="LAPTOP_65" 
@@ -13,5 +13,5 @@
 			So_luong="1"
 		/>
 	</Danh_sach_Laptop>
-	
+	<Khach_hang Ho_ten="Nguyễn Văn D" Dia_chi="123 Nguyễn Trãi, Quận 3" So_Dien_thoai="01358385" />
 </Phieu_dat>
