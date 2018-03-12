@@ -170,15 +170,9 @@
 		</Nhan_vien>
 		<Quan_ly Ma_so="NV_16" Ho_ten="Lê Th" Ten_Dang_nhap="QL_1" Mat_khau="QL_1">
 			<Nhom_Quan_ly Ma_so="QUAN_LY_GIAO_HANG" Ten="Quản lý Giao hàng" />
-			<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
 		</Quan_ly>
-		<Quan_ly Ma_so="NV_17" Ho_ten="Nguyễn Q" Ten_Dang_nhap="QL_2" Mat_khau="QL_2">
+		<Quan_ly Ma_so="NV_18" Ho_ten="Lại V S" Ten_Dang_nhap="QL_2" Mat_khau="QL_2">
 			<Nhom_Quan_ly Ma_so="QUAN_LY_GIAO_HANG" Ten="Quản lý Giao hàng" />
-			<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
-		</Quan_ly>
-		<Quan_ly Ma_so="NV_18" Ho_ten="Lại V S" Ten_Dang_nhap="QL_3" Mat_khau="QL_3">
-			<Nhom_Quan_ly Ma_so="QUAN_LY_GIAO_HANG" Ten="Quản lý Giao hàng" />
-			<Cua_hang  Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
 		</Quan_ly>
 		<Quan_ly Ma_so="NV_19" Ho_ten="Hoàng H" Ten_Dang_nhap="QL_4" Mat_khau="QL_4">
 			<Nhom_Quan_ly Ma_so="QUAN_LY_BAN_HANG" Ten="Quản lý Bán hàng" />

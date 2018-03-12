@@ -44,20 +44,6 @@
 			</Nhan_vien>
 		</Ban_hang>
 	</Danh_sach_Ban_hang>
-	<Danh_sach_Dat_hang>
-		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Phan_cong="09/01/2018 12:00:00 AM" Ngay_Thanh_toan="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_1" Trang_thai="DA_THANH_TOAN">
-			<Khach_hang Ho_ten="Nguyễn Văn C" Dia_chi="123 Phạm Ngũ Lão, Quận 1" So_Dien_thoai="012385640" />
-		</Dat_hang>
-		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_2" Trang_thai="CHO_PHAN_CONG">
-			<Khach_hang Ho_ten="Nguyễn Văn D" Dia_chi="123 Nguyễn Trãi, Quận 3" So_Dien_thoai="01358385" />
-		</Dat_hang>
-		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Phan_cong="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_3" Trang_thai="CHO_GIAO_HANG">
-			<Khach_hang Ho_ten="Nguyễn Văn E" Dia_chi="123 Lê Lợi, Quận 1" So_Dien_thoai="045720845" />
-		</Dat_hang>
-		<Dat_hang Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Huy="09/01/2018 12:00:00 AM" Don_gia="43490000" So_luong="1" Tien="43490000" Cua_hang="CUA_HANG_1" Trang_thai="HUY">
-			<Khach_hang Ho_ten="Nguyễn Văn F" Dia_chi="123 Trần Hưng Đạo, Quận 5" So_Dien_thoai="02752353" />
-		</Dat_hang>
-	</Danh_sach_Dat_hang>
 	<Danh_sach_Nhap_hang>
 		<Nhap_hang Ngay="3/2/2018 12:43:49 PM" So_luong="26" Don_gia_Nhap="41590000" Tien="1081340000" />
 	</Danh_sach_Nhap_hang>
