@@ -1,7 +1,7 @@
 ﻿@using System.Xml;
 @{
     // *********Khởi động Dữ liệu nguồn/nội bộ ********
-    var Du_lieu = XL_LUU_TRU.Doc_Du_lieu();
+    var Du_lieu = XL_DICH_VU.Khoi_dong_Dich_vu();
 
     //*********Khai báo Biến/Đối tượng :Nhận & Kết quả *********
     var Ma_so_Xu_ly = ""; // Biến Nhận
@@ -15,17 +15,17 @@
         var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
         if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_NHAN_VIEN_GIAO_HANG")
         {
-            var Kq = XL_NGHIEP_VU.Tao_Du_lieu_cua_Nhan_vien_Giao_hang(Du_lieu);
+            var Kq = Du_lieu.Tao_Du_lieu_cua_Nhan_vien_Giao_hang();
             Chuoi_Kq = Kq.OuterXml;
         }
-        else if (Ma_so_Xu_ly == "GHI_DAT_HANG_MOI")
-        {
-            var Ma_so_Laptop = Request["Ma_so_Laptop"];
-            var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Du_lieu);
-            var Dat_hang = XL_NGHIEP_VU.Tao_Doi_tuong_Con(Chuoi_Nhan, Laptop);
-            Chuoi_Kq = XL_LUU_TRU.Ghi_Dat_hang_Moi(Laptop, Dat_hang);
+        //else if (Ma_so_Xu_ly == "GHI_DAT_HANG_MOI")
+        //{
+        //    var Ma_so_Laptop = Request["Ma_so_Laptop"];
+        //    var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Du_lieu);
+        //    var Dat_hang = XL_NGHIEP_VU.Tao_Doi_tuong_Con(Chuoi_Nhan, Laptop);
+        //    Chuoi_Kq = XL_LUU_TRU.Ghi_Dat_hang_Moi(Laptop, Dat_hang);
 
-        }
+        //}
     }
 
 
