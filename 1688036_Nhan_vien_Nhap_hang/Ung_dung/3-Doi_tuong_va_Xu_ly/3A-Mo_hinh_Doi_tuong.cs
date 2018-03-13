@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Xml;
 
 
 #region "********Dữ liệu của Phân hệ Khách Tham quan ***********"
@@ -47,4 +47,13 @@ using System.Web;
 #endregion
 
 
+public class XL_NGUOI_DUNG_DANG_NHAP
+{
+    public string Ho_ten, Ma_so = "";
+    public List<XmlElement> Danh_sach_Laptop = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Nhom_Laptop = new List<XmlElement>();
 
+    public string Thong_bao = "";
+    public List<XmlElement> Danh_sach_Laptop_Xem = new List<XmlElement>();
+
+}

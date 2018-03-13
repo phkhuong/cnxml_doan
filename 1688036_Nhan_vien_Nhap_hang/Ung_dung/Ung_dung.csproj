@@ -94,6 +94,7 @@
     <Content Include="1-Man_hinh_Giao_dien\MH_Chinh.cshtml" />
     <Content Include="1-Man_hinh_Giao_dien\MH_Chi_tiet_San_pham.cshtml" />
     <Content Include="1-Man_hinh_Giao_dien\MH_Danh_sach_Laptop.cshtml" />
+    <Content Include="1-Man_hinh_Giao_dien\MH_Dang_nhap.cshtml" />
     <None Include="packages.config" />
     <Content Include="ViewPage1.cshtml" />
     <None Include="Web.Debug.config">
