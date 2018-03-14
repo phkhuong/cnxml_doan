@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C2B94084-A787-40B6-B4EB-32F09FC09237}</ProjectGuid>
+    <ProjectGuid>{98E03DAD-11F5-4F94-A8AC-44C782F4061A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cua_hang_Laptop_Dich_vu</RootNamespace>
-    <AssemblyName>Cua_hang_Laptop_Dich_vu</AssemblyName>
+    <RootNamespace>Dich_vu</RootNamespace>
+    <AssemblyName>Dich_vu</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -54,6 +54,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -72,8 +74,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -95,9 +95,7 @@
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_19.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_2.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_20.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_21.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_21.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_22.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_23.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_24.xml" />
@@ -165,10 +163,11 @@
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_80.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_9.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_1.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_2.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_2.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_3.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_4.xml" />
+    <Content Include="Media\CART.svg" />
+    <Content Include="Media\CART_ICON.svg" />
     <Content Include="Media\LAPTOP_1.png" />
     <Content Include="Media\LAPTOP_10.png" />
     <Content Include="Media\LAPTOP_11.png" />
@@ -265,6 +264,7 @@
     <Content Include="Media\LAPTOP_80.jpg" />
     <Content Include="Media\LAPTOP_80.png" />
     <Content Include="Media\LAPTOP_9.png" />
+    <Content Include="Media\LOGO.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -275,10 +275,10 @@
   <ItemGroup>
     <Content Include="1-Dich_vu_Giao_tiep\DV_Khach_tham_quan.cshtml" />
     <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Giao_hang.cshtml" />
-    <Content Include="1-Dich_vu_Giao_tiep\DV_Quan_ly_Giao_hang.cshtml" />
     <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Nhap_hang.cshtml" />
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Quan_ly_Giao_hang.cshtml" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="ViewPage1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -286,7 +286,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -300,9 +299,11 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61828</DevelopmentServerPort>
+          <DevelopmentServerPort>49943</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:61828/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:61828/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

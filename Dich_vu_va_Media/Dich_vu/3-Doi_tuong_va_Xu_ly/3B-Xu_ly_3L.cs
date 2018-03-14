@@ -130,6 +130,20 @@ public partial class XL_DICH_VU
 
         return Du_lieu_He_khach;
     }
+
+    public string Ghi_Nhap_hang_Moi(string Ma_so_Laptop, string Chuoi_Xml_Nhap_hang)
+    {
+        var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Du_lieu_Dich_vu);
+        var Nhap_hang = XL_NGHIEP_VU.Tao_Doi_tuong_Con(Chuoi_Xml_Nhap_hang, Laptop);
+        var Chuoi_Kq_Ghi = XL_LUU_TRU.Ghi_Nhap_hang_Moi(Laptop, Nhap_hang);
+        if (Chuoi_Kq_Ghi == "OK")
+        {
+            var So_luong_Ton = XL_NGHIEP_VU.Tinh_So_luong_ton_Laptop(Laptop);
+            Laptop.SetAttribute("So_luong_Ton", So_luong_Ton.ToString());
+        }
+        var Chuoi_Xml_Kq = $"<DU_LIEU Kq='{Chuoi_Kq_Ghi}' />";
+        return Chuoi_Xml_Kq;
+    }
 }
     
 
@@ -362,6 +376,33 @@ public partial class XL_LUU_TRU
         {
             var Danh_sach_Ban_hang = Laptop.GetElementsByTagName("Danh_sach_Ban_hang")[0];
             Danh_sach_Ban_hang.RemoveChild(Ban_hang);
+        }
+        return Kq;
+
+    }
+
+    public static string Ghi_Nhap_hang_Moi(XmlElement Laptop, XmlElement Nhap_hang)
+    {
+        var Kq = "";
+
+        try
+        {
+
+            var Danh_sach_Nhap_hang = Laptop.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
+            Danh_sach_Nhap_hang.AppendChild(Nhap_hang);
+            var Duong_dan = Thu_muc_Laptop.FullName + $"\\{Laptop.GetAttribute("Ma_so")}.xml";
+            var Chuoi_XML = Laptop.OuterXml;
+            File.WriteAllText(Duong_dan, Chuoi_XML);
+            Kq = "OK";
+        }
+        catch (Exception Loi)
+        {
+            Kq = Loi.Message;
+        }
+        if (Kq != "OK" && Laptop != null && Nhap_hang != null)
+        {
+            var Danh_sach_Ban_hang = Laptop.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
+            Danh_sach_Ban_hang.RemoveChild(Nhap_hang);
         }
         return Kq;
 
