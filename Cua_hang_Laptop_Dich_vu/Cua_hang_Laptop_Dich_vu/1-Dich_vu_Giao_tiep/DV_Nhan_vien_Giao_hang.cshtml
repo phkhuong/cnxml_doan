@@ -26,6 +26,14 @@
         //    Chuoi_Kq = XL_LUU_TRU.Ghi_Dat_hang_Moi(Laptop, Dat_hang);
 
         //}
+        else if (Ma_so_Xu_ly == "GHI_TINH_TRANG_MOI")
+        {
+            var Ma_so_Phieu_dat = Request["Ma_so_Phieu_dat"];
+            var Tinh_trang_moi = Request["Tinh_trang_moi"];
+
+            Chuoi_Kq = Du_lieu.Ghi_Tinh_trang_Moi(Ma_so_Phieu_dat, Tinh_trang_moi);
+
+        }
     }
 
 

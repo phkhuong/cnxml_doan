@@ -1,18 +1,1 @@
-<Phieu_dat Ma_so="PHIEU_DAT_2" Ngay_Dat="09/01/2018 12:00:00 AM" Ngay_Phan_cong="09/01/2018 12:00:00 AM" Tien="48170000" Tinh_trang="CHO_GIAO_HANG">
-	<Danh_sach_Laptop>
-		<Laptop 
-			Ma_so="LAPTOP_65" 
-			Ten="Máy xách tay/ Laptop Acer A515-51G-51EM (NX.GTCSV.002) (Đen)" 
-			Don_gia_Ban="15490000"
-			So_luong="2"
-		/>
-		<Laptop 
-			Ma_so="LAPTOP_76" 
-			Ten="Máy xách tay/ Laptop DELL Vostro 5568 (F5568-70133573) (Vàng)" 
-			Don_gia_Ban="17190000"
-			So_luong="1"
-		/>
-	</Danh_sach_Laptop>
-	<Khach_hang Ho_ten="Nguyễn Văn E" Dia_chi="123 Lê Lợi, Quận 1" So_Dien_thoai="045720845" />
-	<Nhan_vien Ma_so="NV_9" Ho_ten="Đặng Hữu H" />
-</Phieu_dat>
+<Phieu_dat Ma_so="PHIEU_DAT_2" Ngay_Dat="09/01/2018 12:00:00 SA" Ngay_Phan_cong="09/01/2018 12:00:00 SA" Tien="48170000" Tinh_trang="HUY" Ngay_Huy="17/03/2018 11:12:53 SA"><Danh_sach_Laptop><Laptop Ma_so="LAPTOP_65" Ten="Máy xách tay/ Laptop Acer A515-51G-51EM (NX.GTCSV.002) (Đen)" Don_gia_Ban="15490000" So_luong="2" /><Laptop Ma_so="LAPTOP_76" Ten="Máy xách tay/ Laptop DELL Vostro 5568 (F5568-70133573) (Vàng)" Don_gia_Ban="17190000" So_luong="1" /></Danh_sach_Laptop><Khach_hang Ho_ten="Nguyễn Văn E" Dia_chi="123 Lê Lợi, Quận 1" So_Dien_thoai="045720845" /><Nhan_vien Ma_so="NV_9" Ho_ten="Đặng Hữu H" /></Phieu_dat>

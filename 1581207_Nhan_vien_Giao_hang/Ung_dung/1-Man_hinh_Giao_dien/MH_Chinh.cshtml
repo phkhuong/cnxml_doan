@@ -1,0 +1,78 @@
+﻿@using System.Xml;
+@{
+    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Nguoi_dung = (XL_NGUOI_DUNG_DANG_NHAP)Session["Nguoi_dung_Dang_Nhap"];
+    if (Nguoi_dung == null) { Response.Write("Người dùng không hợp lệ"); Response.End(); }
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = "KHOI_DONG"; };
+
+    var Chuoi_HTML_Ket_qua = "";
+    if (Ma_so_Chuc_nang == "KHOI_DONG")
+    {
+        Chuoi_HTML_Ket_qua = Ung_dung.Khoi_dong();
+    }
+    else if (Ma_so_Chuc_nang == "TRA_CUU")
+    {
+        var Chuoi_Tra_cuu = Request["Th_Chuoi_Tra_cuu"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Tra_cuu(Chuoi_Tra_cuu);
+    }
+    else if (Ma_so_Chuc_nang == "CHON_TINH_TRANG_PHIEU_DAT")
+    {
+        var Ma_so_Nhom_Dien_thoai = Request["Th_Ma_so_Tinh_trang_Phieu_dat"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Chon_Tinh_trang_Phieu_dat(Ma_so_Nhom_Dien_thoai);
+    }
+    else if (Ma_so_Chuc_nang == "GHI_TINH_TRANG_MOI")
+    {
+        var Ma_so_Phieu_dat = Request["Th_Ma_so_Phieu_dat"];
+        var Tinh_trang_moi = Request["Th_Tinh_trang_moi"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Ghi_Tinh_trang_Moi(Ma_so_Phieu_dat, Tinh_trang_moi);
+    }
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="font-family:Arial;width:100%;box-sizing:border-box;
+              margin:0px;padding:0px;overflow-x:hidden" class="container-fluid">
+    <div class="CUA_SO_TIEU_DE" style="background-color:aliceblue;margin:10px">
+        <div class="btn PET" style="margin-left:0px">
+            <img src="@XL_THE_HIEN.Dia_chi_Media/LOGO.png"
+                 style="width:40px;height:30px;" />
+            <div class="btn TOM_TAT" style="color:blue;text-align:center">
+                Mô hình - Công nghệ - Kỹ thuật
+                <br /><b><i>Đơn giản</i></b>
+            </div>
+        </div>
+        <div class="btn btn-outline-primary" style="background-color:white;color:blue">
+            Công nghệ Xml và Ứng dụng  - Cửa hàng Laptop - Tháng 3/2018
+            <br />  @Nguoi_dung.Ho_ten
+        </div>
+    </div>
+    <div class="CUA_SO_CHUC_NANG" style="background-color:gray;margin:10px">
+        <div class="DANH_SACH_CHUC_NANG">
+            <div class="btn  CHUC_NANG">
+                <form method="post">
+                    <input name="Th_Ma_so_Chuc_nang" type="hidden" value="TRA_CUU" />
+                    <input name="Th_Chuoi_Tra_cuu" style="height:30px"
+                           spellcheck="false" autocomplete="off" />
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
+        @Html.Raw(Chuoi_HTML_Ket_qua)
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -71,6 +71,12 @@
 		<SSD Ma_so="SSD_256GB" Ten="256GB"/>
 		<SSD Ma_so="SSD_512GB" Ten="512GB"/>
 	</Danh_sach_SDD>
+  <Danh_sach_Tinh_trang_Phieu_dat>
+    <Tinh_trang Ma_so="CHO_PHAN_CONG" Ten="CHỜ PHÂN CÔNG" />
+    <Tinh_trang Ma_so="CHO_GIAO_HANG" Ten="CHỜ GIAO HÀNG" />
+    <Tinh_trang Ma_so="DA_THANH_TOAN" Ten="ĐÃ THANH TOÁN" />
+    <Tinh_trang Ma_so="HUY" Ten="HỦY" />
+  </Danh_sach_Tinh_trang_Phieu_dat>
 	<Danh_sach_Cua_hang>
 		<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
 		<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />

@@ -81,7 +81,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="2-Du_lieu_Luu_tru\Cong_ty\Cong_ty.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Cong_ty\Cong_ty.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_1.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_10.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_11.xml" />
@@ -164,11 +166,16 @@
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_8.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_80.xml" />
     <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_9.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_1.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_1.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_2.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_3.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_4.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_5.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_6.xml" />
     <Content Include="Media\LAPTOP_1.png" />
     <Content Include="Media\LAPTOP_10.png" />
     <Content Include="Media\LAPTOP_11.png" />
@@ -265,7 +272,9 @@
     <Content Include="Media\LAPTOP_80.jpg" />
     <Content Include="Media\LAPTOP_80.png" />
     <Content Include="Media\LAPTOP_9.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3-Doi_tuong_va_Xu_ly\3A-Mo_hinh_Doi_tuong.cs" />
