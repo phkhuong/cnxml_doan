@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml;
 
 
 
@@ -46,5 +47,39 @@ using System.Web;
 //          SSD:Ma_so,Ten
 #endregion
 
+public class XL_KHACH_THAM_QUAN
+{
+    public List<XmlElement> Danh_sach_Laptop = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Nhom_Laptop = new List<XmlElement>();
 
+    public string Thong_bao = "";
+    public List<XmlElement> Danh_sach_Laptop_Xem = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Laptop_Chon = new List<XmlElement>();
+    public string Ma_so_Laptop_chon;
 
+    public long Tinh_tong_tien()
+    {
+        long kq = 0L;
+        Danh_sach_Laptop_Chon.ForEach(Laptop =>
+        {
+            long Don_gia_Ban = long.Parse(Laptop.GetAttribute("Don_gia_Ban"));
+            int So_luong = int.Parse(Laptop.GetAttribute("So_luong"));
+            kq += Don_gia_Ban * So_luong;
+        });
+        return kq;
+    }
+
+    public void Update_So_luong_ton()
+    {
+        Danh_sach_Laptop_Chon.ForEach(Laptop_chon =>
+        {
+            string Ma_so = Laptop_chon.GetAttribute("Ma_so");
+            var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so, Danh_sach_Laptop);
+            int So_luong_ton = int.Parse(Laptop.GetAttribute("So_luong_ton"));
+            int So_luong = int.Parse(Laptop_chon.GetAttribute("So_luong"));
+            So_luong_ton -= So_luong;
+            Laptop.SetAttribute("So_luong_ton", So_luong_ton.ToString());
+        });
+    }
+
+}

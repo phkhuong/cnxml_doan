@@ -1,28 +1,51 @@
 ﻿@using System.Xml;
 @{    
     //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
-    var Du_lieu = XL_LUU_TRU.Doc_Du_lieu();
-    var Cong_ty = (XmlElement)Du_lieu.GetElementsByTagName("Cong_ty")[0];
-    var Danh_sach_Laptop =(XmlElement) Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
 
-    //******************* Khai báo Biến  ********************
-    var Danh_sach_Laptop_Chon = (XmlElement)Session["Danh_sach_Laptop_Chon"];
-    var Tong_So_Chon = 0L;
-    if (Danh_sach_Laptop_Chon != null)
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    var So_luong_Mat_hang = 0;
+    if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = "KHOI_DONG"; };
+    var Chuoi_HTML_Ket_qua = "";
+    if (Ma_so_Chuc_nang == "KHOI_DONG")
     {
-        Tong_So_Chon = XL_NGHIEP_VU.Tinh_Tong_So_Laptop_Chon(Danh_sach_Laptop_Chon);
+        Chuoi_HTML_Ket_qua = Ung_dung.Khoi_dong_Nguoi_dung();
     }
-    //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
-    Session["Chuoi_Tra_cuu"] = "";
-
-    if (Request["Th_Chuoi_Tra_cuu"] != null)
+    else if (Ma_so_Chuc_nang == "TRA_CUU")
     {
-        Session["Chuoi_Tra_cuu"] = Request["Th_Chuoi_Tra_cuu"];
-
+        var Chuoi_Tra_cuu = Request["Th_Chuoi_Tra_cuu"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Tra_cuu(Chuoi_Tra_cuu);
     }
+    else if (Ma_so_Chuc_nang == "THEM_LAPTOP")
+    {
+        var Ma_so_Laptop = Request["Th_Ma_so_Laptop"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Them_Laptop(Ma_so_Laptop);
+    }
+    else if (Ma_so_Chuc_nang == "GIAM_SO_LUONG_LAPTOP")
+    {
+        var Ma_so_Laptop = Request["Th_Ma_so_Laptop"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Giam_So_luong_Laptop(Ma_so_Laptop);
+    }
+    else if (Ma_so_Chuc_nang == "DAT_HANG")
+    {
 
-    //******************* Kết xuất  **********
-    var Chuoi_Tra_cuu = Session["Chuoi_Tra_cuu"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Dat_hang();
+    }
+    else if(Ma_so_Chuc_nang == "CHON_LAPTOP")
+    {
+        var Ma_so_Laptop = Request["Th_Ma_so_Laptop"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Chon_Laptop(Ma_so_Laptop);
+    }
+    if (Session["Khach_Tham_quan"] == null)
+    {
+        So_luong_Mat_hang = 0;
+    }
+    else
+    {
+        var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)Session["Khach_Tham_quan"];
+        So_luong_Mat_hang = Khach_Tham_quan.Danh_sach_Laptop_Chon.Count;
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -45,7 +68,8 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-5 TIM_KIEM">
                         <form id="HE_THONG" name="HE_THONG" action="MH_Chinh.cshtml" method="post">
-                            <input type="text" id="Th_Chuoi_Tra_cuu" name="Th_Chuoi_Tra_cuu" value="@Chuoi_Tra_cuu" class="form-control" placeholder="Nhập tên sản phẩm, từ khóa cần tìm..." />
+                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="TRA_CUU" />
+                            <input type="text" id="Th_Chuoi_Tra_cuu" name="Th_Chuoi_Tra_cuu" class="form-control" placeholder="Nhập tên sản phẩm, từ khóa cần tìm..." />
                         </form>
                     </div>
                     <div class="col-md-3 offset-md-1 col-sm-4 col-4 NGUOI_DUNG">
@@ -56,7 +80,7 @@
                                     Giỏ Hàng
                                 </div>
                                 <div class="shopping-cart-header">
-                                    (@Tong_So_Chon) sản phẩm
+                                    (@So_luong_Mat_hang) sản phẩm
                                 </div>
                             </div>
                         </div>
@@ -76,45 +100,10 @@
                     </thead>
                 </table>
             </div>
-        <div class="row">
-            <iframe class="KHUNG_CHUC_NANG" id='Khung_Chuc_nang'></iframe>
+        <div class="DANH_SACH">
+            @Html.Raw(Chuoi_HTML_Ket_qua)
         </div>
-        </div>
-    
-    
-    @*<div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
-        @Html.Raw(Chuoi_HTML_Danh_sach_Laptop)
-    </div>*@
-    <script>
-        MH_Danh_sach_Laptop.onclick = () => {
-            Khung_Chuc_nang.src = "MH_Danh_sach_Laptop.cshtml";
-            Danh_dau_Chon_Chuc_nang(MH_Danh_sach_Laptop);
-        }
-
-        function Chon_Chuc_nang(Chuc_nang_Chon) {
-            for (var i = 0; i < Th_Danh_sach_Chuc_nang.childNodes.length; i++) {
-                if (Th_Danh_sach_Chuc_nang.childNodes[i].id == Chuc_nang_Chon) {
-                    Th_Danh_sach_Chuc_nang.childNodes[i].click();
-                    return;
-                }
-            }
-        }
-
-        function Danh_dau_Chon_Chuc_nang(Th_Chuc_nang_Chon) {
-            for (var i = 0; i < Th_Danh_sach_Chuc_nang.childNodes.length; i++)
-                Th_Danh_sach_Chuc_nang.childNodes[i].className = "CHUC_NANG";
-            Th_Chuc_nang_Chon.className += " CHON";
-        }
-    </script>
-
-    @if (Session["Chuc_nang_Chon"] == null)
-    {
-        <script>MH_Danh_sach_Laptop.click();</script>
-    }
-    else
-    {
-        <script>Chon_Chuc_nang('@Session["Chuc_nang_Chon"]');</script>
-    }
+    </div>
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

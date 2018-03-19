@@ -2,13 +2,11 @@
 @using System.Globalization;
 @{
     //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
-    var Du_lieu = XL_LUU_TRU.Doc_Du_lieu();
-    var Cong_ty = (XmlElement)Du_lieu.GetElementsByTagName("Cong_ty")[0];
-    var Danh_sach_Laptop = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
-
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)Session["Khach_Tham_quan"];
     //******************* Khai báo Biến  ********************
-    var Ma_so = Request["Ma_so"];
-    var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so, Danh_sach_Laptop);
+    var Ma_so = Khach_Tham_quan.Ma_so_Laptop_chon;
+    var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so, Khach_Tham_quan.Danh_sach_Laptop);
     var Dia_chi_Media = XL_LUU_TRU.Dia_chi_Dich_vu + "/Media";
     var Dinh_dang_VN = CultureInfo.GetCultureInfo("vi-VN");
     var Ten = Laptop.GetAttribute("Ten");
