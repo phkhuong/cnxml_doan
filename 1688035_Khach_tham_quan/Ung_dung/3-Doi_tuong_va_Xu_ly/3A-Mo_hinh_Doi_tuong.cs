@@ -56,6 +56,10 @@ public class XL_KHACH_THAM_QUAN
     public List<XmlElement> Danh_sach_Laptop_Xem = new List<XmlElement>();
     public List<XmlElement> Danh_sach_Laptop_Chon = new List<XmlElement>();
     public string Ma_so_Laptop_chon;
+    public string Ho_ten;
+    public string Dia_chi;
+    public string So_Dien_thoai;
+
 
     public long Tinh_tong_tien()
     {

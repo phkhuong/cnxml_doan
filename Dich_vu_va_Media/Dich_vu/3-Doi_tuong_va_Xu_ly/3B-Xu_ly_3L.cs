@@ -207,8 +207,9 @@ public partial class XL_DICH_VU
     {
         var Danh_sach_Phieu_dat = (XmlElement)Du_lieu_Dich_vu.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
         var Phieu_dat = XL_NGHIEP_VU.Tao_Doi_tuong_Con(Chuoi_Xml_Dat_hang, Danh_sach_Phieu_dat);
-        var Tong_so_Phieu_dat = XL_LUU_TRU.Thu_muc_Phieu_dat.GetFiles("*.xml").Count();
-        Phieu_dat.SetAttribute("Ma_so", "PHIEU_DAT_" + Tong_so_Phieu_dat.ToString());
+        var Tong_so_Phieu_dat = Danh_sach_Phieu_dat.ChildNodes.Count;
+        var So_Ma_so = Tong_so_Phieu_dat + 1;
+        Phieu_dat.SetAttribute("Ma_so", "PHIEU_DAT_" + So_Ma_so.ToString());
         var Chuoi_Kq_Ghi = XL_LUU_TRU.Ghi_Phieu_dat_Moi(Danh_sach_Phieu_dat, Phieu_dat);
         if (Chuoi_Kq_Ghi == "OK")
         {

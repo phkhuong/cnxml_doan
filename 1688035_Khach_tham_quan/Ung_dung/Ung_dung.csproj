@@ -94,6 +94,7 @@
     <Content Include="1-Giao_dien_The_hien\MH_Chinh.cshtml" />
     <Content Include="1-Giao_dien_The_hien\MH_Danh_sach_Laptop.cshtml" />
     <Content Include="1-Giao_dien_The_hien\MH_Chi_tiet_San_pham.cshtml" />
+    <Content Include="1-Giao_dien_The_hien\MH_Dat_hang.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

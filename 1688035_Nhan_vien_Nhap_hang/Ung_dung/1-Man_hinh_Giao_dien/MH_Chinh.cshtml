@@ -29,6 +29,10 @@
         var So_luong = int.Parse(Request["Th_So_luong"]);
         Chuoi_HTML_Ket_qua = Ung_dung.Ghi_Nhap_hang_Moi(Ma_so_Laptop, So_luong);
     }
+    else if(Ma_so_Chuc_nang == "XEM_DANH_SACH_LAPTOP")
+    {
+        Chuoi_HTML_Ket_qua = Ung_dung.Xem_Danh_sach_Laptop();
+    }
 
 }
 <!DOCTYPE html>
@@ -56,19 +60,6 @@
                             <input type="text" id="Th_Chuoi_Tra_cuu" name="Th_Chuoi_Tra_cuu"  class="form-control" placeholder="Nhập tên sản phẩm, từ khóa cần tìm..." />
                         </form>
                     </div>
-                    <div class="col-md-3 offset-md-1 col-sm-4 col-4 NGUOI_DUNG">
-                        <div class="header-cart">
-                            <img src="@XL_THE_HIEN.Dia_chi_Media/CART.svg" class="CART_ICON" />
-                            <div class="description">
-                                <div class="text-cart d-none d-md-block">
-                                    Giỏ Hàng
-                                </div>
-                                <div class="shopping-cart-header">
-                                    (0) sản phẩm
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -77,7 +68,7 @@
                 <table class="table-responsive">
                     <thead>
                         <tr id="Th_Danh_sach_Chuc_nang">
-                            <td id="MH_Danh_sach_Laptop" class="CHUC_NANG">
+                            <td id="MH_Danh_sach_Laptop" class="CHUC_NANG" onclick="XEM_DANH_SACH_LAPTOP.submit();">
                                 DANH SÁCH LAPTOP
                             </td>
                         </tr>
@@ -88,7 +79,9 @@
     <div class="CUA_SO_KET_QUA">
         @Html.Raw(Chuoi_HTML_Ket_qua)
     </div>
-    
+    <form id="XEM_DANH_SACH_LAPTOP">
+        <input name="Th_Ma_so_Chuc_nang" type="hidden" value="XEM_DANH_SACH_LAPTOP" />
+    </form>
     @*<div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
         @Html.Raw(Chuoi_HTML_Danh_sach_Laptop)
     </div>*@

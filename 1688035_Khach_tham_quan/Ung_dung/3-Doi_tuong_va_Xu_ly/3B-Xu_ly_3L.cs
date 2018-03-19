@@ -47,7 +47,13 @@ public class XL_UNG_DUNG
         var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
         return Chuoi_HTML;
     }
-
+    public string Xem_Danh_sach_Laptop()
+    {
+        var Nguoi_dung_Dang_nhap = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
+        Nguoi_dung_Dang_nhap.Danh_sach_Laptop_Xem = Danh_sach_Laptop;
+        var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
+        return Chuoi_HTML;
+    }
     public string Chon_Nhom_Laptop(string Ma_so_Nhom_Laptop)
     {
         var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
@@ -147,24 +153,40 @@ public class XL_UNG_DUNG
         var Tai_lieu_Phieu_dat = new XmlDocument();
         Tai_lieu_Phieu_dat.LoadXml(Chuoi_XML);
         var Phieu_dat = Tai_lieu_Phieu_dat.DocumentElement;
-        Phieu_dat.SetAttribute("Ngay_dat", DateTime.Now.ToString());
-        Phieu_dat.SetAttribute("Tien", Khach_Tham_quan.Tinh_tong_tien().ToString());
-        Phieu_dat.SetAttribute("Tinh_trang", "CHO_PHAN_CONG");
+
         var Chuoi_XML_Danh_sach = "<Danh_sach_Laptop />";
         var Tai_lieu_Danh_sach = new XmlDocument();
         Tai_lieu_Danh_sach.LoadXml(Chuoi_XML_Danh_sach);
         var Danh_sach = Tai_lieu_Danh_sach.DocumentElement;
+
+        var Chuoi_XML_Khach_hang = "<Khach_hang />";
+        var Tai_lieu_Khach_hang = new XmlDocument();
+        Tai_lieu_Khach_hang.LoadXml(Chuoi_XML_Khach_hang);
+        var Khach_hang = Tai_lieu_Khach_hang.DocumentElement;
+
+        Phieu_dat.SetAttribute("Ngay_dat", DateTime.Now.ToString());
+        Phieu_dat.SetAttribute("Tien", Khach_Tham_quan.Tinh_tong_tien().ToString());
+        Phieu_dat.SetAttribute("Tinh_trang", "CHO_PHAN_CONG");
+        
         foreach (XmlElement Laptop in Khach_Tham_quan.Danh_sach_Laptop_Chon)
         {
             Danh_sach.AppendChild(Tai_lieu_Danh_sach.ImportNode(Laptop, true));
         }
         Phieu_dat.AppendChild(Tai_lieu_Phieu_dat.ImportNode(Danh_sach, true));
-        var Kq_Ghi = XL_LUU_TRU.Ghi_Dat_hang_Moi(Khach_Tham_quan,Phieu_dat);
-        if (Kq_Ghi == "OK")
-            Khach_Tham_quan.Thong_bao = "Đặt hàng thành công";
-            Khach_Tham_quan.Thong_bao = "Lỗi Hệ thống - Xin Thực hiện lại  ";
 
-        var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
+        Khach_hang.SetAttribute("Ho_ten", Khach_Tham_quan.Ho_ten);
+        Khach_hang.SetAttribute("Dia_chi", Khach_Tham_quan.Dia_chi);
+        Khach_hang.SetAttribute("So_Dien_thoai", Khach_Tham_quan.So_Dien_thoai);
+        Phieu_dat.AppendChild(Tai_lieu_Phieu_dat.ImportNode(Khach_hang, true));
+
+        var Kq_Ghi = XL_LUU_TRU.Ghi_Phieu_dat_Moi(Khach_Tham_quan,Phieu_dat);
+
+        if (Kq_Ghi == "OK")
+            Khach_Tham_quan.Thong_bao = $"<div class='alert alert-success'>Bạn đã đặt hàng thành công</div>";
+        else
+            Khach_Tham_quan.Thong_bao = $"<div class='alert alert-warning'>Đã có lỗi xảy ra, vui lòng thực hiện lại</div>";
+
+        var Chuoi_HTML = Khach_Tham_quan.Thong_bao;
         return Chuoi_HTML;
 
     }
@@ -281,9 +303,9 @@ public class XL_UNG_DUNG
             $"<input class='form-control' type='text' id='Th_Ho_ten' name='Th_Ho_ten'>" +
             $"</div></div>" +
             $"<div class='form-group row'>" +
-            $"<label for='Th_Email' class='col-2 col-form-label'>Email</label>" +
+            $"<label for='Th_Dia_chi' class='col-2 col-form-label'>Địa chỉ</label>" +
             $"<div class='col-10'>" +
-            $"<input class='form-control' type='text' id='Th_Email' name='Th_Email'>" +
+            $"<input class='form-control' type='text' id='Th_Dia_chi' name='Th_Dia_chi'>" +
             $"</div></div>" +
             $"<div class='form-group row'>" +
             $"<label for='Th_So_Dien_thoai' class='col-2 col-form-label'>Số điện thoại</label>" +
@@ -409,7 +431,7 @@ public partial class XL_LUU_TRU
     }
 
     // Ghi 
-    public static string Ghi_Dat_hang_Moi(XL_KHACH_THAM_QUAN Nguoi_dung,XmlElement Phieu_dat)
+    public static string Ghi_Phieu_dat_Moi(XL_KHACH_THAM_QUAN Nguoi_dung,XmlElement Phieu_dat)
     {
         var Kq = "OK";
 
@@ -431,7 +453,6 @@ public partial class XL_LUU_TRU
         }
         if (Kq == "OK")
         {
-            Nguoi_dung.Update_So_luong_ton();
 
         }
         return Kq;

@@ -283,10 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1-Dich_vu_Giao_tiep\DV_Khach_tham_quan.cshtml" />
-    <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Ban_hang.cshtml" />
     <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Giao_hang.cshtml" />
     <Content Include="1-Dich_vu_Giao_tiep\DV_Quan_ly_Giao_hang.cshtml" />
-    <Content Include="1-Dich_vu_Giao_tiep\ViewPage1.cshtml" />
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Nhap_hang.cshtml" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">

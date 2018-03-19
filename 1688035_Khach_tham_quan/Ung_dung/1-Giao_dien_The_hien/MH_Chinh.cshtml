@@ -37,6 +37,10 @@
         var Ma_so_Laptop = Request["Th_Ma_so_Laptop"];
         Chuoi_HTML_Ket_qua = Ung_dung.Chon_Laptop(Ma_so_Laptop);
     }
+    else if (Ma_so_Chuc_nang == "XEM_DANH_SACH_LAPTOP")
+    {
+        Chuoi_HTML_Ket_qua = Ung_dung.Xem_Danh_sach_Laptop();
+    }
     if (Session["Khach_Tham_quan"] == null)
     {
         So_luong_Mat_hang = 0;
@@ -93,7 +97,7 @@
                 <table class="table-responsive">
                     <thead>
                         <tr id="Th_Danh_sach_Chuc_nang">
-                            <td id="MH_Danh_sach_Laptop" class="CHUC_NANG">
+                            <td id="MH_Danh_sach_Laptop" class="CHUC_NANG" onclick="XEM_DANH_SACH_LAPTOP.submit();">
                                 DANH SÁCH LAPTOP
                             </td>
                         </tr>
@@ -104,6 +108,9 @@
             @Html.Raw(Chuoi_HTML_Ket_qua)
         </div>
     </div>
+    <form id="XEM_DANH_SACH_LAPTOP">
+        <input name="Th_Ma_so_Chuc_nang" type="hidden" value="XEM_DANH_SACH_LAPTOP" />
+    </form>
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

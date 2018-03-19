@@ -1,5 +1,6 @@
 ﻿@{
     var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Nguoi_dung = (XL_KHACH_THAM_QUAN)Session["Khach_Tham_quan"];
     //******************* Khai báo Biến  ********************
     var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
     if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = "KHOI_DONG"; };
@@ -10,6 +11,9 @@
     }
     else if(Ma_so_Chuc_nang == "DAT_HANG")
     {
+        Nguoi_dung.Ho_ten = Request["Th_Ho_ten"];
+        Nguoi_dung.So_Dien_thoai = Request["Th_So_Dien_thoai"];
+        Nguoi_dung.Dia_chi = Request["Th_Dia_chi"];
         Chuoi_HTML_Ket_qua = Ung_dung.Ghi_Dat_hang_Moi();
     }
 }

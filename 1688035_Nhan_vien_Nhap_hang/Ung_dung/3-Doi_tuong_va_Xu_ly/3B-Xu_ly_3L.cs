@@ -70,9 +70,16 @@ public class XL_UNG_DUNG
 
         return Nguoi_dung_Dang_nhap;
     }
-    //11111111 Chức năng Xem111111111111111111111
+    //Chức năng Xem
     public string Khoi_dong()
     {
+        var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
+        return Chuoi_HTML;
+    }
+    public string Xem_Danh_sach_Laptop()
+    {
+        var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
+        Nguoi_dung_Dang_nhap.Danh_sach_Laptop_Xem = Danh_sach_Laptop;
         var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
         return Chuoi_HTML;
     }
@@ -93,7 +100,7 @@ public class XL_UNG_DUNG
         var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
         return Chuoi_HTML;
     }
-    //2222222Chức năng Ghi222222222222222
+    //Chức năng Ghi
     public string Ghi_Nhap_hang_Moi(string Ma_so_Laptop, int So_luong)
     {
         var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
@@ -171,7 +178,7 @@ public partial class XL_THE_HIEN
                                         $"type='number' min='1'  max='100' value='10' />  " +
                                        "</form>";
             var Chuoi_Hinh = $"<div class='KHUNG_HINH mx-auto'>" +
-                                $"<a href='MH_Chi_tiet_San_pham.cshtml?Ma_so={Ma_so}'><img src='{Dia_chi_Media}/{Ma_so}.png' class='img-thumbnail HINH'/></a>" +
+                                $"<img src='{Dia_chi_Media}/{Ma_so}.png' class='img-thumbnail HINH'/>" +
                              "</div>";
             var Chuoi_Thong_tin = $"<div>" +
                                       $"<strong>{Ten}</strong>" +
@@ -323,7 +330,7 @@ public partial class XL_LUU_TRU
         {
             var Xu_ly = new WebClient();
             Xu_ly.Encoding = System.Text.Encoding.UTF8;
-            var Tham_so = $"Ma_so_Xu_ly=GHI_NHAP_HANG_MOI&Ma_so_Dien_thoai={Laptop.GetAttribute("Ma_so")}";
+            var Tham_so = $"Ma_so_Xu_ly=GHI_NHAP_HANG_MOI&Ma_so_Laptop={Laptop.GetAttribute("Ma_so")}";
             var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
             var Chuoi_XML_Nhap_hang = Nhap_hang.OuterXml;
             var Chuoi_XML_Kq = Xu_ly.UploadString(Dia_chi_Xu_ly, Chuoi_XML_Nhap_hang).Trim();
