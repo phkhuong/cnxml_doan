@@ -1,31 +1,41 @@
 ﻿@using System.Xml;
-@{    
+@{
     //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
-    var Du_lieu = XL_LUU_TRU.Doc_Du_lieu();
-    var Cong_ty = (XmlElement)Du_lieu.GetElementsByTagName("Cong_ty")[0];
-    var Danh_sach_Laptop =(XmlElement) Du_lieu.GetElementsByTagName("Danh_sach_Laptop")[0];
-    var Danh_sach_Phieu_dat = (XmlElement)Du_lieu.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
-
-    // Hard-coded QUAN_LY
-    string selector = String.Format("//Quan_ly[@Ma_so='{0}']", "QL_1");
-    XmlElement Quan_ly = (XmlElement)Cong_ty.SelectSingleNode(selector);
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Nguoi_dung = (XL_NGUOI_DUNG_DANG_NHAP)Session["Nguoi_dung_Dang_Nhap"];
+    if (Nguoi_dung == null) { Response.Write("Người dùng không hợp lệ"); Response.End(); }
 
 
-    //******************* Khai báo Biến  ********************
-    var Danh_sach_Phieu_dat_Xem = Danh_sach_Phieu_dat; // Biến Kết quả 
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = "KHOI_DONG"; };
 
-    //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
-    Session["Chuoi_Tra_cuu"] = "";
-
-    if (Request["Th_Chuoi_Tra_cuu"] != null)
+    var Chuoi_HTML_Ket_qua = "";
+    if (Ma_so_Chuc_nang == "KHOI_DONG")
     {
-        Session["Chuoi_Tra_cuu"] = Request["Th_Chuoi_Tra_cuu"];
-
+        Chuoi_HTML_Ket_qua = Ung_dung.Khoi_dong();
     }
-
-    //******************* Kết xuất  **********
-    var Chuoi_Tra_cuu = Session["Chuoi_Tra_cuu"];
-    var Chuoi_HTML_Danh_sach_Phieu_dat = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Phieu_dat(Danh_sach_Phieu_dat_Xem);
+    else if (Ma_so_Chuc_nang == "TRA_CUU")
+    {
+        var Chuoi_Tra_cuu = Request["Th_Chuoi_Tra_cuu"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Tra_cuu(Chuoi_Tra_cuu);
+    }
+    else if (Ma_so_Chuc_nang == "CHON_TINH_TRANG_PHIEU_DAT")
+    {
+        var Ma_so_Nhom_Phieu_dat = Request["Th_Ma_so_Tinh_trang_Phieu_dat"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Chon_Tinh_trang_Phieu_dat(Ma_so_Nhom_Phieu_dat);
+    }
+    else if (Ma_so_Chuc_nang == "CHON_NHAN_VIEN_PHIEU_DAT")
+    {
+        var Ma_so_Nhan_vien = Request["Th_Ma_so_Nhan_vien_Phieu_dat"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Chon_Nhan_vien_Phieu_dat(Ma_so_Nhan_vien);
+    }
+    else if (Ma_so_Chuc_nang == "GHI_PHAN_CONG_MOI")
+    {
+        var Ma_so_Phieu_dat = Request["Th_Ma_so_Phieu_dat"];
+        var Ma_so_Nhan_vien_giao = Request["Th_Ma_so_Nhan_vien"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Ghi_Phan_cong_Moi(Ma_so_Phieu_dat, Ma_so_Nhan_vien_giao);
+    }
 }
 <!DOCTYPE html>
 <html>
@@ -33,93 +43,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="DD_Chinh.css?v=@DateTime.Now.Ticks" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-
-    <div class="container-fluid">
-        
-        <div class="row TIEU_DE justify-content-center">
-            <div class="col-md-10 col-md-offset-1 content-section">
-                <div class="row align-items-center">
-                    <div class="col-md-2 col-sm-2 col-3 LOGO">
-                        <img src="@XL_THE_HIEN.Dia_chi_Media/LOGO.png" />
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-5 TIM_KIEM">
-                        <form id="HE_THONG" name="HE_THONG" action="MH_Chinh.cshtml" method="post">
-                            <input type="text" id="Th_Chuoi_Tra_cuu" name="Th_Chuoi_Tra_cuu" value="@Chuoi_Tra_cuu" class="form-control" placeholder="Nhập tên sản phẩm, từ khóa cần tìm..." />
-                        </form>
-                    </div>
-                    <div class="col-md-3 offset-md-1 col-sm-4 col-4 NGUOI_DUNG">
-                        <div class="header-cart">
-                            <img src="@XL_THE_HIEN.Dia_chi_Media/CART.svg" class="CART_ICON" />
-                            <div class="description">
-                                <div class="text-cart d-none d-md-block">
-                                    Giỏ Hàng
-                                </div>
-                                <div class="shopping-cart-header">
-                                    (0) sản phẩm
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<body style="font-family:Arial;width:100%;box-sizing:border-box;
+              margin:0px;padding:0px;overflow-x:hidden" class="container-fluid">
+    <div class="CUA_SO_TIEU_DE" style="background-color:aliceblue;margin:10px">
+        <div class="btn PET" style="margin-left:0px">
+            <img src="@XL_THE_HIEN.Dia_chi_Media/LOGO.png"
+                 style="width:40px;height:30px;" />
+            <div class="btn TOM_TAT" style="color:blue;text-align:center">
+                Mô hình - Công nghệ - Kỹ thuật
+                <br /><b><i>Đơn giản</i></b>
             </div>
         </div>
-
-            <div class="row DANH_SACH_CHUC_NANG">
-                <table class="table-responsive">
-                    <thead>
-                        <tr id="Th_Danh_sach_Chuc_nang">
-                            <td id="MH_Danh_sach_Phieu_dat" class="CHUC_NANG">
-                                DANH SÁCH PHIẾU ĐẶT
-                            </td>
-                        </tr>
-                    </thead>
-                </table>
+        <div class="btn btn-outline-primary" style="background-color:white;color:blue">
+            Công nghệ Xml và Ứng dụng  - Cửa hàng Laptop - Tháng 3/2018
+            <br />  @Nguoi_dung.Ho_ten
+        </div>
+    </div>
+    <div class="CUA_SO_CHUC_NANG" style="background-color:gray;margin:10px">
+        <div class="DANH_SACH_CHUC_NANG">
+            <div class="btn  CHUC_NANG">
+                <form method="post">
+                    <input name="Th_Ma_so_Chuc_nang" type="hidden" value="TRA_CUU" />
+                    <input name="Th_Chuoi_Tra_cuu" style="height:30px"
+                           spellcheck="false" autocomplete="off" />
+                </form>
             </div>
-        <div class="row">
-            <iframe class="KHUNG_CHUC_NANG" id='Khung_Chuc_nang'></iframe>
+
         </div>
-        </div>
-    
-    
-    @*<div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
-        @Html.Raw(Chuoi_HTML_Danh_sach_Laptop)
-    </div>*@
-    <script>
-        MH_Danh_sach_Phieu_dat.onclick = () => {
-            Khung_Chuc_nang.src = "MH_Danh_sach_Phieu_dat.cshtml";
-            Danh_dau_Chon_Chuc_nang(MH_Danh_sach_Phieu_dat);
-        }
+    </div>
+    <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
+        @Html.Raw(Chuoi_HTML_Ket_qua)
+    </div>
 
-        function Chon_Chuc_nang(Chuc_nang_Chon) {
-            for (var i = 0; i < Th_Danh_sach_Chuc_nang.childNodes.length; i++) {
-                if (Th_Danh_sach_Chuc_nang.childNodes[i].id == Chuc_nang_Chon) {
-                    Th_Danh_sach_Chuc_nang.childNodes[i].click();
-                    return;
-                }
-            }
-        }
-
-        function Danh_dau_Chon_Chuc_nang(Th_Chuc_nang_Chon) {
-            for (var i = 0; i < Th_Danh_sach_Chuc_nang.childNodes.length; i++)
-                Th_Danh_sach_Chuc_nang.childNodes[i].className = "CHUC_NANG";
-            Th_Chuc_nang_Chon.className += " CHON";
-        }
-    </script>
-
-    @if (Session["Chuc_nang_Chon"] == null)
-    {
-        <script>MH_Danh_sach_Phieu_dat.click();</script>
-    }
-    else
-    {
-        <script>Chon_Chuc_nang('@Session["Chuc_nang_Chon"]');</script>
-    }
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

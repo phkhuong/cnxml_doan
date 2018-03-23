@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1-Giao_dien_The_hien\MH_Chinh.cshtml" />
-    <Content Include="1-Giao_dien_The_hien\MH_Danh_sach_Phieu_dat.cshtml" />
+    <Content Include="1-Giao_dien_The_hien\MH_Dang_nhap.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml;
 
 
 
@@ -47,4 +48,31 @@ using System.Web;
 #endregion
 
 
+public class XL_NGUOI_DUNG_DANG_NHAP
+{
+    public string Ho_ten, Ma_so = "";
+    public string Thong_bao = "";
+
+
+    public List<XL_PHIEU_DAT> Danh_sach_Phieu_dat = new List<XL_PHIEU_DAT>();
+    public List<XL_PHIEU_DAT> Danh_sach_Phieu_dat_Xem = new List<XL_PHIEU_DAT>();
+    public List<XmlElement> Danh_sach_Tinh_trang = new List<XmlElement>();
+
+    public List<XmlElement> Danh_sach_Nhan_vien = new List<XmlElement>();
+}
+
+public class XL_PHIEU_DAT
+{
+    public string Ma_so;
+    public DateTime Ngay_dat;
+    public DateTime Ngay_Phan_cong;
+    public DateTime Ngay_Thanh_toan;
+    public DateTime Ngay_huy;
+    public long Tien;
+    public string Tinh_trang;
+
+    public List<XmlElement> Danh_sach_Laptop = new List<XmlElement>();
+    public XmlElement Khach_hang;
+    public XmlElement Nhan_vien;
+}
 

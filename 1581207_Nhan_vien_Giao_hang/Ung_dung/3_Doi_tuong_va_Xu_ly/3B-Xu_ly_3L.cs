@@ -8,19 +8,19 @@ using System.Xml;
 using System.Globalization;
 using System.Net;
 public class XL_UNG_DUNG
-{ 
-//==================== Khở động ==============
+{
+    //==================== Khở động ==============
     static XL_UNG_DUNG Ung_dung = null;
     public bool Khoi_dong_Co_loi = false;
     XmlElement Du_lieu_Ung_dung;
     XmlElement Cong_ty;
     List<XmlElement> Danh_sach_Tinh_trang_Phieu_dat = new List<XmlElement>();
     List<XL_PHIEU_DAT> Danh_sach_Phieu_dat = new List<XL_PHIEU_DAT>();
-    List<XmlElement> Danh_sach_Nguoi_dung=new List<XmlElement>();
+    List<XmlElement> Danh_sach_Nguoi_dung = new List<XmlElement>();
 
     public static XL_UNG_DUNG Khoi_dong_Ung_dung()
     {
-        if (Ung_dung==null)
+        if (Ung_dung == null)
         {
             Ung_dung = new XL_UNG_DUNG();
             Ung_dung.Du_lieu_Ung_dung = XL_LUU_TRU.Doc_Du_lieu();
@@ -31,32 +31,32 @@ public class XL_UNG_DUNG
         }
         return Ung_dung;
     }
-  
+
     void Khoi_dong_Du_lieu_Ung_dung()
     {
-        
-       
+
+
         Cong_ty = (XmlElement)Du_lieu_Ung_dung.GetElementsByTagName("Cong_ty")[0];
-        
+
         var DS_Nguoi_dung = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Nhan_vien")[0];
         Danh_sach_Nguoi_dung = XL_NGHIEP_VU.Tao_Danh_sach(DS_Nguoi_dung, "Nhan_vien");
         var DS_Phieu_dat = (XmlElement)Du_lieu_Ung_dung.GetElementsByTagName("Danh_sach_Phieu_dat")[0];
         Danh_sach_Phieu_dat = XL_NGHIEP_VU.Tao_Danh_sach_Phieu_dat(DS_Phieu_dat);
         var DS_Tinh_trang = (XmlElement)Du_lieu_Ung_dung.GetElementsByTagName("Danh_sach_Tinh_trang_Phieu_dat")[0];
         Danh_sach_Tinh_trang_Phieu_dat = XL_NGHIEP_VU.Tao_Danh_sach(DS_Tinh_trang, "Tinh_trang");
-        
+
     }
     //============= Xử lý Chức năng ========
     public XL_NGUOI_DUNG_DANG_NHAP Dang_nhap(string Ten_Dang_nhap, string Mat_khau)
     {
         var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)null;
 
-        var Nguoi_dung =  Danh_sach_Nguoi_dung.FirstOrDefault(
-            x => x.GetAttribute("Ten_Dang_nhap")==Ten_Dang_nhap && x.GetAttribute("Mat_khau") == Mat_khau);
+        var Nguoi_dung = Danh_sach_Nguoi_dung.FirstOrDefault(
+            x => x.GetAttribute("Ten_Dang_nhap") == Ten_Dang_nhap && x.GetAttribute("Mat_khau") == Mat_khau);
         if (Nguoi_dung != null)
-        {            
+        {
             var Danh_sach_Phieu_dat_cua_Nguoi_dung = Danh_sach_Phieu_dat.FindAll(
-                x =>x.Nhan_vien != null && x.Nhan_vien.GetAttribute("Ma_so") == Nguoi_dung.GetAttribute("Ma_so"));
+                x => x.Nhan_vien != null && x.Nhan_vien.GetAttribute("Ma_so") == Nguoi_dung.GetAttribute("Ma_so"));
 
             // Thống tin Online 
             Nguoi_dung_Dang_nhap = new XL_NGUOI_DUNG_DANG_NHAP();
@@ -70,9 +70,9 @@ public class XL_UNG_DUNG
 
             HttpContext.Current.Session["Nguoi_dung_Dang_nhap"] = Nguoi_dung_Dang_nhap;
 
-            
+
         }
-            
+
         return Nguoi_dung_Dang_nhap;
     }
     //11111111 Chức năng Xem111111111111111111111
@@ -106,7 +106,7 @@ public class XL_UNG_DUNG
                 chuoi_tra_cuu = "DA_THANH_TOAN";
                 break;
             case "HỦY":
-                 chuoi_tra_cuu = "HUY";
+                chuoi_tra_cuu = "HUY";
                 break;
             default:
                 chuoi_tra_cuu = Ma_so_Tinh_trang;
@@ -123,7 +123,8 @@ public class XL_UNG_DUNG
     {
         var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
 
-        var Hop_le = Ma_so_Phieu_dat != null && (Tinh_trang_moi == "1" || Tinh_trang_moi == "2");
+        var Hop_le = Ma_so_Phieu_dat != null && 
+            (Tinh_trang_moi == "1" || Tinh_trang_moi == "2" || Tinh_trang_moi == "3");
         if (Hop_le)
         {
             var Kq_Ghi = XL_LUU_TRU.Ghi_Tinh_trang_moi(Ma_so_Phieu_dat, Tinh_trang_moi);
@@ -131,7 +132,22 @@ public class XL_UNG_DUNG
             {
                 Nguoi_dung_Dang_nhap.Thong_bao = "Đã cập nhật tình trạng của " + Ma_so_Phieu_dat;
                 var Phieu_dat = Nguoi_dung_Dang_nhap.Danh_sach_Phieu_dat.First(p => p.Ma_so == Ma_so_Phieu_dat);
-                Phieu_dat.Tinh_trang = Tinh_trang_moi == "1" ? "DA_THANH_TOAN" : "HUY";
+                switch (Tinh_trang_moi)
+                {
+                    case "1":
+                        Phieu_dat.Tinh_trang = "DA_THANH_TOAN";
+                        Phieu_dat.Ngay_Thanh_toan = DateTime.Now;
+                        break;
+                    case "2":
+                        Phieu_dat.Tinh_trang = "HUY";
+                        Phieu_dat.Ngay_huy = DateTime.Now;
+                        break;
+                    case "3":
+                        Phieu_dat.Tinh_trang = "CHO_GIAO_HANG";
+                        Phieu_dat.Ngay_Phan_cong = DateTime.Now;
+                        break;
+                }
+                
             }
             else
                 Nguoi_dung_Dang_nhap.Thong_bao = "Lỗi Hệ thống - Xin Thực hiện lại  ";
@@ -148,7 +164,7 @@ public class XL_UNG_DUNG
     public string Tao_Chuoi_HTML_Ket_qua()
     {
         var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
-      
+
         var Chuoi_HTML = $"<div>" +
                  $"{XL_THE_HIEN.Tao_Chuoi_HTML_Thong_bao(Nguoi_dung_Dang_nhap.Thong_bao)}" +
                  $"{XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Tinh_trang_Phieu_dat_Xem(Nguoi_dung_Dang_nhap.Danh_sach_Tinh_trang)}" +
@@ -171,7 +187,7 @@ public partial class XL_THE_HIEN
                           $"</div>";
         return Chuoi_HTML;
     }
-    
+
     public static string Tao_Chuoi_HTML_Danh_sach_Tinh_trang_Phieu_dat_Xem(List<XmlElement> Danh_sach)
     {
         var Chuoi_HTML_Danh_sach = "<div class='btn btn-primary' style='margin:10px'>";
@@ -180,7 +196,7 @@ public partial class XL_THE_HIEN
             var Ten = tinh_trang.GetAttribute("Ten");
             var Ma_so = tinh_trang.GetAttribute("Ma_so");
 
-            
+
             var Chuoi_Chuc_nang_Chon = $"<form method='post'>" +
                                         "<input name='Th_Ma_so_Chuc_nang' type='hidden' value='CHON_TINH_TRANG_PHIEU_DAT' />" +
                                          $"<input name='Th_Ma_so_Tinh_trang_Phieu_dat' type='hidden' value='{Ma_so}' />" +
@@ -207,13 +223,8 @@ public partial class XL_THE_HIEN
         {
             string tinh_trang_class;
             string tinh_trang;
-            string chuoi_HTML_form = "";
-            switch (Phieu_dat.Tinh_trang)
-            {
-                case "CHO_GIAO_HANG":
-                    tinh_trang_class = "bg-info";
-                    tinh_trang = "CHỜ GIAO HÀNG";
-                    chuoi_HTML_form = $@"
+            string Chuoi_Ngay = "";
+            string chuoi_HTML_form = $@"
                     <form method='POST' class='form-inline'>
                         <input name='Th_Ma_so_Chuc_nang' type='hidden' value='GHI_TINH_TRANG_MOI' />
                         <input name='Th_Ma_so_Phieu_dat' type='hidden' value='{Phieu_dat.Ma_so}' />
@@ -221,18 +232,27 @@ public partial class XL_THE_HIEN
 						  <option value = '' selected>Cập nhật tình trạng Phiếu đặt</option>
 						  <option value = '1' > Đã thanh toán</option>
 						  <option value = '2' > Hủy </ option >
+                          <option value = '3' > Chờ giao hàng </ option >
                         </select >
                         <button type= 'submit' class='btn btn-primary mb-2'>Cập nhật</button>
 					</form>
                     ";
+            switch (Phieu_dat.Tinh_trang)
+            {
+                case "CHO_GIAO_HANG":
+                    tinh_trang_class = "bg-info";
+                    tinh_trang = "CHỜ GIAO HÀNG";
+                    Chuoi_Ngay = $"Ngày Phân công: {Phieu_dat.Ngay_Phan_cong.ToString(Dinh_dang_VN)}";
                     break;
                 case "DA_THANH_TOAN":
                     tinh_trang_class = "bg-success";
                     tinh_trang = "ĐÃ THANH TOÁN";
+                    Chuoi_Ngay = $"Ngày Thanh toán: {Phieu_dat.Ngay_Thanh_toan.ToString(Dinh_dang_VN)}";
                     break;
                 case "HUY":
                     tinh_trang_class = "bg-danger";
                     tinh_trang = "HỦY";
+                    Chuoi_Ngay = $"Ngày Hủy: {Phieu_dat.Ngay_huy.ToString(Dinh_dang_VN)}";
                     break;
                 default:
                     tinh_trang_class = "";
@@ -241,7 +261,7 @@ public partial class XL_THE_HIEN
             }
 
             var Chuoi_Danh_sach_Laptop = "";
-            foreach(XmlElement laptop in Phieu_dat.Danh_sach_Laptop)
+            foreach (XmlElement laptop in Phieu_dat.Danh_sach_Laptop)
             {
                 var ten = laptop.GetAttribute("Ten");
                 var gia = long.Parse(laptop.GetAttribute("Don_gia_Ban"));
@@ -259,15 +279,20 @@ public partial class XL_THE_HIEN
             $@"<div class='col-sm-6 col-md-4'>
                 <div class= 'card text-white {tinh_trang_class} mb-3'>
 				  <div class='card-header'>{Phieu_dat.Ma_so} - {Phieu_dat.Tien.ToString("c0", Dinh_dang_VN)}
-				  	<p>Ngày phân công: {Phieu_dat.Ngay_Phan_cong.ToString(Dinh_dang_VN)}</p>
+                    <p>{Chuoi_Ngay}</p>
                     <p>Tình trạng: {tinh_trang}</p>
 				  </div>
 				  <div class='card-body'>
 				    <h5 class='ard-title'>{Phieu_dat.Khach_hang.GetAttribute("Ho_ten")}</h5>
 				    <p class='card-text'>Địa chỉ: {Phieu_dat.Khach_hang.GetAttribute("Dia_chi")} <br/>Số điện thoại: {Phieu_dat.Khach_hang.GetAttribute("So_Dien_thoai")} <br/></p>
-				    <ul class='list-group'>
-					  {Chuoi_Danh_sach_Laptop}
-					</ul>
+				    <button class='btn btn-outline-dark' type='button' data-toggle='collapse' data-target='#{Phieu_dat.Ma_so}' aria-expanded='false' aria-controls='collapseExample'>
+                        Danh sách Laptop đặt hàng
+                    </button>
+                    <div class='collapse' id='{Phieu_dat.Ma_so}'>
+                        <ul class='list-group'>
+					        {Chuoi_Danh_sach_Laptop}
+					    </ul>
+                    </div>
 					<br/>
 					{chuoi_HTML_form}
 				  </div>
@@ -275,7 +300,7 @@ public partial class XL_THE_HIEN
 			</div>";
 
 
-            
+
 
             Chuoi_HTML_Danh_sach += Chuoi_Thong_tin;
         }
@@ -290,7 +315,7 @@ public partial class XL_NGHIEP_VU
     public static List<XL_PHIEU_DAT> Tra_cuu_Phieu_dat(
           string Chuoi_Tra_cuu, List<XL_PHIEU_DAT> Danh_sach)
     {
-        if (DateTime.TryParse(Chuoi_Tra_cuu, XL_THE_HIEN.Dinh_dang_VN, DateTimeStyles.None ,out DateTime Ngay_Tra_cuu))
+        if (DateTime.TryParse(Chuoi_Tra_cuu, XL_THE_HIEN.Dinh_dang_VN, DateTimeStyles.None, out DateTime Ngay_Tra_cuu))
         {
             return Danh_sach.FindAll(x => x.Ngay_Phan_cong.Date == Ngay_Tra_cuu.Date);
         }
@@ -299,7 +324,7 @@ public partial class XL_NGHIEP_VU
         // tra cứu tình trạng có dấu
         var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
         var node = Nguoi_dung_Dang_nhap.Danh_sach_Tinh_trang.FirstOrDefault(t => t.GetAttribute("Ten") == Chuoi_Tra_cuu);
-        if(node != null)
+        if (node != null)
             Chuoi_Tra_cuu = node.GetAttribute("Ma_so");
 
         var kq = Danh_sach.FindAll(x => x.Ma_so.Contains(Chuoi_Tra_cuu) || x.Tinh_trang == Chuoi_Tra_cuu
@@ -320,12 +345,12 @@ public partial class XL_NGHIEP_VU
     public static List<XL_PHIEU_DAT> Tao_Danh_sach_Phieu_dat(XmlElement Danh_sach_Xml_nguon)
     {
         List<XL_PHIEU_DAT> Danh_sach_Phieu_dat = new List<XL_PHIEU_DAT>();
-        foreach(XmlElement Phieu_dat_xml in Danh_sach_Xml_nguon.GetElementsByTagName("Phieu_dat"))
+        foreach (XmlElement Phieu_dat_xml in Danh_sach_Xml_nguon.GetElementsByTagName("Phieu_dat"))
         {
             XL_PHIEU_DAT Phieu_dat = new XL_PHIEU_DAT();
             Phieu_dat.Ma_so = Phieu_dat_xml.GetAttribute("Ma_so");
             string ngay = Phieu_dat_xml.GetAttribute("Ngay_Dat");
-            if(ngay != "")
+            if (ngay != "")
                 Phieu_dat.Ngay_dat = DateTime.Parse(ngay, XL_THE_HIEN.Dinh_dang_VN);
 
             ngay = Phieu_dat_xml.GetAttribute("Ngay_Phan_cong");
@@ -339,8 +364,8 @@ public partial class XL_NGHIEP_VU
             Phieu_dat.Tien = long.Parse(Phieu_dat_xml.GetAttribute("Tien"));
             Phieu_dat.Tinh_trang = Phieu_dat_xml.GetAttribute("Tinh_trang");
 
-            Phieu_dat.Khach_hang = (XmlElement)Phieu_dat_xml.GetElementsByTagName("Khach_hang")[0] ;
-            Phieu_dat.Nhan_vien = (XmlElement)Phieu_dat_xml.GetElementsByTagName("Nhan_vien")[0] ;
+            Phieu_dat.Khach_hang = (XmlElement)Phieu_dat_xml.GetElementsByTagName("Khach_hang")[0];
+            Phieu_dat.Nhan_vien = (XmlElement)Phieu_dat_xml.GetElementsByTagName("Nhan_vien")[0];
 
             Phieu_dat.Danh_sach_Laptop = Tao_Danh_sach((XmlElement)Phieu_dat_xml.GetElementsByTagName("Danh_sach_Laptop")[0], "Laptop");
 
@@ -354,11 +379,11 @@ public partial class XL_NGHIEP_VU
 //************************* Data-Layers DL **********************************
 public partial class XL_LUU_TRU
 {
-    
+
     public static string Dia_chi_Dich_vu = "http://localhost:61828";
     static string Dia_chi_Dich_vu_Du_lieu = $"{Dia_chi_Dich_vu}/1-Dich_vu_Giao_tiep/DV_Nhan_vien_Giao_hang.cshtml";
     // Đọc
-    public static  XmlElement  Doc_Du_lieu()
+    public static XmlElement Doc_Du_lieu()
     {
         var Chuoi_XML = "<Du_lieu  />";
         var Xu_ly = new WebClient();
@@ -438,7 +463,7 @@ public partial class XL_LUU_TRU
         {
             Kq = Loi.Message;
         }
-       
+
         return Kq;
     }
 }

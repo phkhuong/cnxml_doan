@@ -18,14 +18,15 @@
             var Kq = Du_lieu.Tao_Du_lieu_cua_Quan_ly_Giao_hang();
             Chuoi_Kq = Kq.OuterXml;
         }
-        //else if (Ma_so_Xu_ly == "GHI_DAT_HANG_MOI")
-        //{
-        //    var Ma_so_Laptop = Request["Ma_so_Laptop"];
-        //    var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so_Laptop, Du_lieu);
-        //    var Dat_hang = XL_NGHIEP_VU.Tao_Doi_tuong_Con(Chuoi_Nhan, Laptop);
-        //    Chuoi_Kq = XL_LUU_TRU.Ghi_Dat_hang_Moi(Laptop, Dat_hang);
+        else if (Ma_so_Xu_ly == "GHI_PHAN_CONG_MOI")
+        {
+            var Ma_so_Phieu_dat = Request["Ma_so_Phieu_dat"];
+            var Ma_so_Nhan_vien = Request["Ma_so_Nhan_vien"];
 
-        //}
+            Chuoi_Kq = Du_lieu.Ghi_Phan_cong_Moi(Ma_so_Phieu_dat, Ma_so_Nhan_vien);
+
+        }
+
     }
 
 
