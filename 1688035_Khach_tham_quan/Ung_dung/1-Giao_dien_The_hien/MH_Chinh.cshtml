@@ -2,7 +2,7 @@
 @{    
     //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
     var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
-
+    var Nguoi_dung = (XL_KHACH_THAM_QUAN)Session["Khach_Tham_quan"];
     //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
     var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
     var So_luong_Mat_hang = 0;
@@ -40,6 +40,50 @@
     else if (Ma_so_Chuc_nang == "XEM_DANH_SACH_LAPTOP")
     {
         Chuoi_HTML_Ket_qua = Ung_dung.Xem_Danh_sach_Laptop();
+    }
+    else if (Ma_so_Chuc_nang == "DANG_NHAP")
+    {
+
+        var Ten_Dang_nhap = Request["Th_Ten_Dang_nhap"];
+        var Mat_khau = Request["Th_Mat_khau"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Dang_nhap(Ten_Dang_nhap, Mat_khau);
+    }
+    else if(Ma_so_Chuc_nang == "LOC")
+    {
+        var Chuoi_Hang = Request["Th_Nhom_Laptop"];
+        var Chuoi_Mau_sac = Request["Th_Mau_sac"];
+        string[] Hangs = new string[6];
+        string[] Mau_sacs = new string[8];
+        if (Chuoi_Hang != null)
+        {
+            Hangs = Chuoi_Hang.Split(',');
+        }
+        else
+        {
+            var count = 0;
+            Nguoi_dung.Danh_sach_Nhom_Laptop.ForEach(Nhom_Laptop =>
+            {
+                Hangs[count] = Nhom_Laptop.GetAttribute("Ma_so");
+                count++;
+            });
+        }
+        if (Chuoi_Mau_sac != null)
+        {
+            Mau_sacs = Chuoi_Mau_sac.Split(',');
+        }
+        else
+        {
+            var count = 0;
+            Nguoi_dung.Danh_sach_Mau_sac.ForEach(Mau_sac =>
+            {
+                Mau_sacs[count] = Mau_sac.GetAttribute("Ma_so");
+                count++;
+            });
+        }
+        var Dieu_kien_Loc = new Dictionary<string, string[]>();
+        Dieu_kien_Loc.Add("Nhom_Lap_top", Hangs);
+        Dieu_kien_Loc.Add("Mau_sac", Mau_sacs);
+        Chuoi_HTML_Ket_qua = Ung_dung.Loc(Dieu_kien_Loc);
     }
     if (Session["Khach_Tham_quan"] == null)
     {
@@ -93,23 +137,54 @@
             </div>
         </div>
 
-            <div class="row DANH_SACH_CHUC_NANG">
-                <table class="table-responsive">
-                    <thead>
-                        <tr id="Th_Danh_sach_Chuc_nang">
-                            <td id="MH_Danh_sach_Laptop" class="CHUC_NANG" onclick="XEM_DANH_SACH_LAPTOP.submit();">
-                                DANH SÁCH LAPTOP
-                            </td>
-                        </tr>
-                    </thead>
-                </table>
+        <div class="row DANH_SACH_CHUC_NANG">
+            <table class="table-responsive">
+                <thead>
+                    <tr id="Th_Danh_sach_Chuc_nang">
+                        <td id="MH_Danh_sach_Laptop" class="CHUC_NANG" onclick="CHUC_NANG.value='XEM_DANH_SACH_LAPTOP';DIEU_HUONG.submit();">
+                            DANH SÁCH LAPTOP
+                        </td>
+                        <td id="Dang_nhap" class="CHUC_NANG" data-toggle="modal" data-target="#myModal">
+                            ĐĂNG NHẬP
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Đăng Nhập</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-signin">
+                            <input type="text" id="Th_Ten_Dang_nhap" name="Th_Ten_Dang_nhap" class="form-control" placeholder="Tên đăng nhập" required autofocus>
+                            <input type="password" id="Th_Mat_khau" name="Th_Mat_khau" class="form-control" placeholder="Mật khẩu" required>
+                            <input name="Th_Ma_so_Chuc_nang" type="hidden" value="DANG_NHAP" />
+                            <button id="Th_Dong_y" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Đăng nhập</button>
+                        </form>
+                    </div>
+                    @*<div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>*@
+                </div>
+
             </div>
+        </div>
+
         <div class="DANH_SACH">
+            
             @Html.Raw(Chuoi_HTML_Ket_qua)
         </div>
     </div>
-    <form id="XEM_DANH_SACH_LAPTOP">
-        <input name="Th_Ma_so_Chuc_nang" type="hidden" value="XEM_DANH_SACH_LAPTOP" />
+    <form id="DIEU_HUONG" method="post">
+        <input id="CHUC_NANG" name="Th_Ma_so_Chuc_nang" type="hidden" />
     </form>
 </body>
 </html>

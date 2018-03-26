@@ -4,41 +4,19 @@
     //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
     var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
     var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)Session["Khach_Tham_quan"];
-    //******************* Khai báo Biến  ********************
-    var Ma_so = Khach_Tham_quan.Ma_so_Laptop_chon;
-    var Laptop = XL_NGHIEP_VU.Tim_Laptop(Ma_so, Khach_Tham_quan.Danh_sach_Laptop);
-    var Dia_chi_Media = XL_LUU_TRU.Dia_chi_Dich_vu + "/Media";
-    var Dinh_dang_VN = CultureInfo.GetCultureInfo("vi-VN");
-    var Ten = Laptop.GetAttribute("Ten");
-    var Don_gia_Ban = long.Parse(Laptop.GetAttribute("Don_gia_Ban"));
-    var Trong_luong = Laptop.GetAttribute("Trong_luong");
-    var He_dieu_hanh = Laptop.GetAttribute("He_dieu_hanh");
-    var CPU = Laptop.GetAttribute("CPU");
-    var Card_Onboard = Laptop.GetAttribute("Card_Man_hinh_Onboard");
-    var Bao_hanh = Laptop.GetAttribute("Bao_hanh");
-
-    //var Nhom_Laptop_Element = (XmlElement)Laptop.GetElementsByTagName("Nhom_Laptop")[0];
-    var Nhom_Laptop = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Nhom_Lap_top");
-    var Ten_CPU = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "CPU_Series");
-    var Dung_luong_Ram = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Dung_luong_Ram");
-    var Kich_thuoc_Man_hinh = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Kich_thuoc_Man_hinh");
-    var Chuan_Man_hinh = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Chuan_Man_hinh");
-    var Tinh_nang = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Tinh_nang");
-    var Mau_sac = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Mau_sac");
-    var Card_Man_hinh_ngoai = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "Card_Man_hinh_Ngoai");
-    var HDD = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "HDD");
-    var SSD = XL_NGHIEP_VU.Get_Ten_Chi_tiet_Laptop(Laptop, "SSD");
-
-
-    //var CPU_Element = (XmlElement)Laptop.GetElementsByTagName("CPU_Series")[0];
-    //var Ten_CPU = CPU_Element.GetAttribute("Ten");
-    //var Ram_Element = (XmlElement)Laptop.GetElementsByTagName("Dung_luong_Ram")[0];
-    //var Dung_luong_Ram = Ram_Element.GetAttribute("Ten");
-    //var Kich_thuoc_Man_hinh_Element = (XmlElement)Laptop.GetElementsByTagName("Kich_thuoc_Man_hinh")[0];
-    //var Kich_thuoc_Man_hinh = Kich_thuoc_Man_hinh_Element.GetAttribute("Ten");
-    //var Chuan_Man_hinh_Element = (XmlElement)Laptop.GetElementsByTagName("Chuan_Man_hinh")[0];
-    //var Chuan_Man_hinh = Chuan_Man_hinh_Element.GetAttribute("Ten");
-
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = "KHOI_DONG"; };
+    var Chuoi_HTML_Ket_qua = "";
+    if (Ma_so_Chuc_nang == "KHOI_DONG")
+    {
+        Chuoi_HTML_Ket_qua = Ung_dung.Khoi_dong_MH_Chi_tiet_San_Pham();
+    }
+    else if (Ma_so_Chuc_nang == "THEM_LAPTOP")
+    {
+        var So_luong = int.Parse(Request["Th_So_luong"]);
+        Chuoi_HTML_Ket_qua = Ung_dung.Them_Laptop(Khach_Tham_quan.Ma_so_Laptop_chon,So_luong);
+    }
 }
 
 <!DOCTYPE html>
@@ -57,103 +35,7 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <img src='@Dia_chi_Media/@(Ma_so).png' class='' />
-            </div>
-            <div class="col-md-7">
-                <h4 style="border-bottom: 1px solid #949798;">@Ten</h4>
-                <h3 style="margin-top:0px;"><strong>@Don_gia_Ban.ToString("c0", Dinh_dang_VN)</strong></h3>
-                <p style="border-bottom: 1px solid #949798;">
-                    CPU: @Ten_CPU
-                    <br />
-                    Ram: @Dung_luong_Ram
-                    <br />
-                    Màn hình: @Kich_thuoc_Man_hinh @Chuan_Man_hinh
-                    <br />
-                    Trọng lượng: @Trong_luong
-                    <br />
-                    Hệ điều hành: @He_dieu_hanh
-                </p>
-                <form>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input type="number" name="quantity" min="1" max="5" value="1">
-                        </div>
-                        <div class="col-md-5 offset-md-2">
-                            <button type='button' class='btn btn-primary btn-block ADD_BUTTON'>THÊM VÀO GIỎ HÀNG <img class='CART_ICON' src='@Dia_chi_Media/CART_ICON.svg' /></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div>
-                <h5>Thông số kỹ thuật</h5>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Bảo hành</th>
-                            <td>@Bao_hanh</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Thương hiệu</th>
-                            <td>@Nhom_Laptop</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Tính năng</th>
-                            <td>@Tinh_nang</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Màu sắc</th>
-                            <td>@Mau_sac</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">CPU series</th>
-                            <td>@Ten_CPU</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">CPU</th>
-                            <td>@CPU</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Hệ điều hành</th>
-                            <td>@He_dieu_hanh</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Ram</th>
-                            <td>@Dung_luong_Ram</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Kích thước màn hình</th>
-                            <td>@Kich_thuoc_Man_hinh</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Chuẩn màn hình</th>
-                            <td>@Chuan_Man_hinh</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Card màn hình Onboard</th>
-                            <td>@Card_Onboard</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Card màn hình gắn ngoài</th>
-                            <td>@Card_Man_hinh_ngoai</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HDD</th>
-                            <td>@HDD</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SSD</th>
-                            <td>@SSD</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Trọng lượng</th>
-                            <td>@Trong_luong</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        @Html.Raw(Chuoi_HTML_Ket_qua)
     </div>
 </body>
 </html>

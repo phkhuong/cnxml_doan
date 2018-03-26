@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1-Giao_dien_The_hien\DD_Chinh.css" />
+    <Content Include="1-Giao_dien_The_hien\DD_Chi_tiet_San_pham.css" />
     <Content Include="1-Giao_dien_The_hien\DD_Xem_Danh_sach.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -119,7 +120,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64784</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64784/</IISUrl>
+          <IISUrl>http://localhost:64785/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:64785/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

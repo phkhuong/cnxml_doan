@@ -60,8 +60,6 @@ public partial class XL_DICH_VU
         Tai_lieu.LoadXml(Chuoi_XML);
         var Du_lieu_He_khach = Tai_lieu.DocumentElement;
         var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
-        var Danh_sach_Nhan_vien = Cong_ty_He_khach.GetElementsByTagName("Danh_sach_Nhan_vien")[0];
-        Cong_ty_He_khach.RemoveChild(Danh_sach_Nhan_vien);
         var Danh_sach_Laptop = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Danh_sach_Laptop")[0];
 
         foreach (XmlElement Laptop_He_khach in Danh_sach_Laptop.SelectNodes("/Laptop"))

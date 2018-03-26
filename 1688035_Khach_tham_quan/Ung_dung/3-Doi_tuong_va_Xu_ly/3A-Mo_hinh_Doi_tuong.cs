@@ -51,7 +51,7 @@ public class XL_KHACH_THAM_QUAN
 {
     public List<XmlElement> Danh_sach_Laptop = new List<XmlElement>();
     public List<XmlElement> Danh_sach_Nhom_Laptop = new List<XmlElement>();
-
+    public List<XmlElement> Danh_sach_Mau_sac = new List<XmlElement>();
     public string Thong_bao = "";
     public List<XmlElement> Danh_sach_Laptop_Xem = new List<XmlElement>();
     public List<XmlElement> Danh_sach_Laptop_Chon = new List<XmlElement>();
