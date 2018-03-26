@@ -66,11 +66,11 @@
 		<HDD Ma_so="HDD_500GB" Ten="500GB"/>
 		<HDD Ma_so="HDD_1TB" Ten="1TB"/>
 	</Danh_sach_HDD>
-	<Danh_sach_SDD>
+	<Danh_sach_SSD>
 		<SSD Ma_so="SSD_128GB" Ten="128GB"/>
 		<SSD Ma_so="SSD_256GB" Ten="256GB"/>
 		<SSD Ma_so="SSD_512GB" Ten="512GB"/>
-	</Danh_sach_SDD>
+	</Danh_sach_SSD>
   <Danh_sach_Tinh_trang_Phieu_dat>
     <Tinh_trang Ma_so="CHO_PHAN_CONG" Ten="CHỜ PHÂN CÔNG" />
     <Tinh_trang Ma_so="CHO_GIAO_HANG" Ten="CHỜ GIAO HÀNG" />

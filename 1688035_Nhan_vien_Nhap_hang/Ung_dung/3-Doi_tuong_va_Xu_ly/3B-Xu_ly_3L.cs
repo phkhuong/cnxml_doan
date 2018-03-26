@@ -20,15 +20,12 @@ public class XL_UNG_DUNG
 
     public static XL_UNG_DUNG Khoi_dong_Ung_dung()
     {
-        if (Ung_dung == null)
-        {
-            Ung_dung = new XL_UNG_DUNG();
-            Ung_dung.Du_lieu_Ung_dung = XL_LUU_TRU.Doc_Du_lieu();
-            if (Ung_dung.Du_lieu_Ung_dung.GetAttribute("Kq") == "OK")
-                Ung_dung.Khoi_dong_Du_lieu_Ung_dung();
-            else
-                Ung_dung.Khoi_dong_Co_loi = true;
-        }
+        Ung_dung = new XL_UNG_DUNG();
+        Ung_dung.Du_lieu_Ung_dung = XL_LUU_TRU.Doc_Du_lieu();
+        if (Ung_dung.Du_lieu_Ung_dung.GetAttribute("Kq") == "OK")
+            Ung_dung.Khoi_dong_Du_lieu_Ung_dung();
+        else
+            Ung_dung.Khoi_dong_Co_loi = true;
         return Ung_dung;
     }
 

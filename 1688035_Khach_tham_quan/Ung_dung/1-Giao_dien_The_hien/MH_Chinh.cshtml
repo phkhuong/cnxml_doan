@@ -52,37 +52,61 @@
     {
         var Chuoi_Hang = Request["Th_Nhom_Laptop"];
         var Chuoi_Mau_sac = Request["Th_Mau_sac"];
-        string[] Hangs = new string[6];
-        string[] Mau_sacs = new string[8];
+        var Chuoi_Tinh_nang = Request["Th_Tinh_nang"];
+        var Chuoi_CPU_Series = Request["Th_CPU_Series"];
+        var Hangs = new List<string>();
+        var Mau_sacs = new List<string>();
+        var Tinh_nangs = new List<string>();
+        var DS_CPU_Series = new List<string>();
         if (Chuoi_Hang != null)
         {
-            Hangs = Chuoi_Hang.Split(',');
+            Hangs = Chuoi_Hang.Split(',').ToList();
         }
         else
         {
-            var count = 0;
             Nguoi_dung.Danh_sach_Nhom_Laptop.ForEach(Nhom_Laptop =>
             {
-                Hangs[count] = Nhom_Laptop.GetAttribute("Ma_so");
-                count++;
+                Hangs.Add(Nhom_Laptop.GetAttribute("Ma_so"));
             });
         }
         if (Chuoi_Mau_sac != null)
         {
-            Mau_sacs = Chuoi_Mau_sac.Split(',');
+            Mau_sacs = Chuoi_Mau_sac.Split(',').ToList();
         }
         else
         {
-            var count = 0;
             Nguoi_dung.Danh_sach_Mau_sac.ForEach(Mau_sac =>
             {
-                Mau_sacs[count] = Mau_sac.GetAttribute("Ma_so");
-                count++;
+                Mau_sacs.Add(Mau_sac.GetAttribute("Ma_so"));
             });
         }
-        var Dieu_kien_Loc = new Dictionary<string, string[]>();
+        if (Chuoi_Tinh_nang != null)
+        {
+            Tinh_nangs = Chuoi_Tinh_nang.Split(',').ToList();
+        }
+        else
+        {
+            Nguoi_dung.Danh_sach_Tinh_nang.ForEach(Tinh_nang =>
+            {
+                Tinh_nangs.Add(Tinh_nang.GetAttribute("Ma_so"));
+            });
+        }
+        if (Chuoi_CPU_Series != null)
+        {
+            DS_CPU_Series = Chuoi_CPU_Series.Split(',').ToList();
+        }
+        else
+        {
+            Nguoi_dung.Danh_sach_CPU_Series.ForEach(CPU_Series =>
+            {
+                DS_CPU_Series.Add(CPU_Series.GetAttribute("Ma_so"));
+            });
+        }
+        var Dieu_kien_Loc = new Dictionary<string, List<string>>();
         Dieu_kien_Loc.Add("Nhom_Lap_top", Hangs);
         Dieu_kien_Loc.Add("Mau_sac", Mau_sacs);
+        Dieu_kien_Loc.Add("Tinh_nang", Tinh_nangs);
+        Dieu_kien_Loc.Add("CPU_Series", DS_CPU_Series);
         Chuoi_HTML_Ket_qua = Ung_dung.Loc(Dieu_kien_Loc);
     }
     if (Session["Khach_Tham_quan"] == null)

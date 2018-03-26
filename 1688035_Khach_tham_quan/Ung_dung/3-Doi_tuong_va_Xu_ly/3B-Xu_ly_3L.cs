@@ -13,18 +13,25 @@ public class XL_UNG_DUNG
     static XL_UNG_DUNG Ung_dung = null;
     XmlElement Du_lieu_Ung_dung;
     XmlElement Cong_ty;
+
     List<XmlElement> Danh_sach_Nhom_Laptop = new List<XmlElement>();
     List<XmlElement> Danh_sach_Mau_sac = new List<XmlElement>();
+    List<XmlElement> Danh_sach_Tinh_nang = new List<XmlElement>();
+    List<XmlElement> Danh_sach_CPU_Series = new List<XmlElement>();
+    List<XmlElement> Danh_sach_Card_Man_hinh_Ngoai = new List<XmlElement>();
+    List<XmlElement> Danh_sach_Chuan_Man_hinh = new List<XmlElement>();
+    List<XmlElement> Danh_sach_Kich_thuoc_Man_hinh = new List<XmlElement>();
+    List<XmlElement> Danh_sach_Dung_luong_Ram = new List<XmlElement>();
+    List<XmlElement> Danh_sach_HDD = new List<XmlElement>();
+    List<XmlElement> Danh_sach_SSD = new List<XmlElement>();
+
     List<XmlElement> Danh_sach_Laptop = new List<XmlElement>();
     List<XmlElement> Danh_sach_Nguoi_dung = new List<XmlElement>();
 
     public static XL_UNG_DUNG Khoi_dong_Ung_dung()
     {
-        if (Ung_dung == null)
-        {
-            Ung_dung = new XL_UNG_DUNG();
-            Ung_dung.Khoi_dong_Du_lieu_Ung_dung();
-        }
+        Ung_dung = new XL_UNG_DUNG();
+        Ung_dung.Khoi_dong_Du_lieu_Ung_dung();
         return Ung_dung;
     }
     void Khoi_dong_Du_lieu_Ung_dung()
@@ -35,6 +42,24 @@ public class XL_UNG_DUNG
         Danh_sach_Nhom_Laptop = XL_NGHIEP_VU.Tao_Danh_sach(DS_Nhom_Laptop, "Nhom_Lap_top");
         var DS_Mau_sac = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Mau_sac")[0];
         Danh_sach_Mau_sac = XL_NGHIEP_VU.Tao_Danh_sach(DS_Mau_sac, "Mau_sac");
+        var DS_Tinh_nang = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Tinh_nang")[0];
+        Danh_sach_Tinh_nang = XL_NGHIEP_VU.Tao_Danh_sach(DS_Tinh_nang, "Tinh_nang");
+        var DS_CPU_Series = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_CPU_Series")[0];
+        Danh_sach_CPU_Series = XL_NGHIEP_VU.Tao_Danh_sach(DS_CPU_Series, "CPU_Series");
+        var DS_Card_Man_hinh_Ngoai = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Card_Man_hinh_Ngoai")[0];
+        Danh_sach_Card_Man_hinh_Ngoai = XL_NGHIEP_VU.Tao_Danh_sach(DS_Card_Man_hinh_Ngoai, "Card_Man_hinh_Ngoai");
+        var DS_Chuan_Man_hinh = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Chuan_Man_hinh")[0];
+        Danh_sach_Chuan_Man_hinh = XL_NGHIEP_VU.Tao_Danh_sach(DS_Chuan_Man_hinh, "Chuan_Man_hinh");
+        var DS_Kich_thuoc_Man_hinh = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Kich_thuoc_Man_hinh")[0];
+        Danh_sach_Kich_thuoc_Man_hinh = XL_NGHIEP_VU.Tao_Danh_sach(DS_Kich_thuoc_Man_hinh, "Kich_thuoc_Man_hinh");
+        var DS_Dung_luong_Ram = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_Dung_luong_Ram")[0];
+        Danh_sach_Dung_luong_Ram = XL_NGHIEP_VU.Tao_Danh_sach(DS_Dung_luong_Ram, "Dung_luong_Ram");
+        var DS_HDD = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_HDD")[0];
+        Danh_sach_HDD = XL_NGHIEP_VU.Tao_Danh_sach(DS_HDD, "HDD");
+        var DS_SSD = (XmlElement)Cong_ty.GetElementsByTagName("Danh_sach_SSD")[0];
+        Danh_sach_SSD = XL_NGHIEP_VU.Tao_Danh_sach(DS_SSD, "SSD");
+
+
         var DS_Laptop = (XmlElement)Du_lieu_Ung_dung.GetElementsByTagName("Danh_sach_Laptop")[0];
         Danh_sach_Laptop = XL_NGHIEP_VU.Tao_Danh_sach(DS_Laptop, "Laptop");
 
@@ -48,6 +73,14 @@ public class XL_UNG_DUNG
         Khach_Tham_quan.Danh_sach_Laptop = Danh_sach_Laptop;
         Khach_Tham_quan.Danh_sach_Nhom_Laptop = Danh_sach_Nhom_Laptop;
         Khach_Tham_quan.Danh_sach_Mau_sac = Danh_sach_Mau_sac;
+        Khach_Tham_quan.Danh_sach_Tinh_nang = Danh_sach_Tinh_nang;
+        Khach_Tham_quan.Danh_sach_CPU_Series = Danh_sach_CPU_Series;
+        Khach_Tham_quan.Danh_sach_Card_Man_hinh_Ngoai = Danh_sach_Card_Man_hinh_Ngoai;
+        Khach_Tham_quan.Danh_sach_Chuan_Man_hinh = Danh_sach_Chuan_Man_hinh;
+        Khach_Tham_quan.Danh_sach_Kich_thuoc_Man_hinh = Danh_sach_Kich_thuoc_Man_hinh;
+        Khach_Tham_quan.Danh_sach_Dung_luong_Ram = Danh_sach_Dung_luong_Ram;
+        Khach_Tham_quan.Danh_sach_HDD = Danh_sach_HDD;
+        Khach_Tham_quan.Danh_sach_SSD = Danh_sach_SSD;
         Khach_Tham_quan.Danh_sach_Laptop_Xem = Danh_sach_Laptop;
         Khach_Tham_quan.Danh_sach_Laptop_Chon = new List<XmlElement>();
         HttpContext.Current.Session["Khach_Tham_quan"] = Khach_Tham_quan;
@@ -59,6 +92,12 @@ public class XL_UNG_DUNG
     {
         var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
         var Chuoi_HTML = Tao_Chuoi_HTML_MH_Chi_tiep_Laptop();
+        return Chuoi_HTML;
+    }
+    public string Khoi_dong_Man_hinh_Dat_hang()
+    {
+        var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
+        var Chuoi_HTML = XL_THE_HIEN.Tao_chuoi_Nhap_Thong_tin_Ca_nhan();
         return Chuoi_HTML;
     }
     public string Dang_nhap(string Ten_Dang_nhap, string Mat_khau)
@@ -129,22 +168,30 @@ public class XL_UNG_DUNG
         var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
         return Chuoi_HTML;
     }
-    public string Loc(Dictionary<string,string[]> Dieu_kien_Loc)
+    public string Loc(Dictionary<string,List<string>> Dieu_kien_Loc)
     {
         var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
         
         var Chuoi_XPath = $"//Laptop";
-        foreach (KeyValuePair<string, string[]> dk in Dieu_kien_Loc)
+        foreach (KeyValuePair<string, List<string>> dk in Dieu_kien_Loc)
         {
-            for (int i = 0; i < dk.Value.Length; i++)
+            if(dk.Value.Count == 1)
             {
-                if (i == dk.Value.Length - 1)
-                    Chuoi_XPath += $"{dk.Key}/@Ma_so = '{dk.Value[i]}']";
-                else if (i == 0)
-                    Chuoi_XPath += $"[{dk.Key}/@Ma_so = '{dk.Value[i]}' or ";
-                else
-                    Chuoi_XPath += $"{dk.Key}/@Ma_so = '{dk.Value[i]}' or ";
+                Chuoi_XPath += $"[{dk.Key}/@Ma_so = '{dk.Value[0]}']";
             }
+            else
+            {
+                for (int i = 0; i < dk.Value.Count; i++)
+                {
+                    if (i == dk.Value.Count - 1)
+                        Chuoi_XPath += $"{dk.Key}/@Ma_so = '{dk.Value[i]}']";
+                    else if (i == 0)
+                        Chuoi_XPath += $"[{dk.Key}/@Ma_so = '{dk.Value[i]}' or ";
+                    else
+                        Chuoi_XPath += $"{dk.Key}/@Ma_so = '{dk.Value[i]}' or ";
+                }
+            }
+            
         }
         //for(int i = 0; i<Hangs.Length;i++)
         //{
@@ -159,13 +206,7 @@ public class XL_UNG_DUNG
         var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
         return Chuoi_HTML;
     }
-    public string Chon_Nhom_Laptop(string Ma_so_Nhom_Laptop)
-    {
-        var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
-        Khach_Tham_quan.Danh_sach_Laptop_Xem = XL_NGHIEP_VU.Tra_cuu_Laptop(Ma_so_Nhom_Laptop, Khach_Tham_quan.Danh_sach_Laptop);
-        var Chuoi_HTML = Tao_Chuoi_HTML_Ket_qua();
-        return Chuoi_HTML;
-    }
+
     public string Them_Laptop(string Ma_so_Laptop)
     {
         var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
@@ -279,16 +320,10 @@ public class XL_UNG_DUNG
     {
         var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
         var Chuoi_HTML =
-                 $"{XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Laptop_Chon(Khach_Tham_quan.Danh_sach_Laptop_Chon)}" +
                  $"{XL_THE_HIEN.Tao_chuoi_Chi_tiet_Laptop(Khach_Tham_quan)}";
         return Chuoi_HTML;
     }
-    public string Khoi_dong_Man_hinh_Dat_hang()
-    {
-        var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
-        var Chuoi_HTML = XL_THE_HIEN.Tao_chuoi_Nhap_Thong_tin_Ca_nhan();
-        return Chuoi_HTML;
-    }
+    
     public string Ghi_Dat_hang_Moi()
     {
         var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)HttpContext.Current.Session["Khach_Tham_quan"];
@@ -453,17 +488,17 @@ public class XL_UNG_DUNG
             if (i == 0 || i == 3)
             {
                 Chuoi_HTML += $"<div class='col-6'>" +
-                    $"<div class='Th_Nhom_Laptop'><label for='{Ma_so_Nhom_Laptop}'>" +
+                    $"<div class='Th_Nhom_Laptop' style='padding:6px;><label for='{Ma_so_Nhom_Laptop}'>" +
                     $"<input type='checkbox' name='Th_Nhom_Laptop' id='{Ma_so_Nhom_Laptop}' value='{Ma_so_Nhom_Laptop}'>{Ma_so_Nhom_Laptop }</label></div>";
             }
             else if (i==2 || i==5)
             {
-                Chuoi_HTML += $"<div class='Th_Nhom_Laptop'><label for='{Ma_so_Nhom_Laptop}'>" +
+                Chuoi_HTML += $"<div class='Th_Nhom_Laptop' style='padding:6px;><label for='{Ma_so_Nhom_Laptop}'>" +
                    $"<input type='checkbox' name='Th_Nhom_Laptop' id='{Ma_so_Nhom_Laptop}' value='{Ma_so_Nhom_Laptop}'>{Ma_so_Nhom_Laptop }</label></div></div>";
             }
             else
             {
-                Chuoi_HTML += $"<div class='Th_Nhom_Laptop'><label for='{Ma_so_Nhom_Laptop}'>" +
+                Chuoi_HTML += $"<div class='Th_Nhom_Laptop' style='padding:6px;><label for='{Ma_so_Nhom_Laptop}'>" +
                    $"<input type='checkbox' name='Th_Nhom_Laptop' id='{Ma_so_Nhom_Laptop}' value='{Ma_so_Nhom_Laptop}'>{Ma_so_Nhom_Laptop }</label></div>";
             }
         }
@@ -478,19 +513,43 @@ public class XL_UNG_DUNG
             if (i == 0 || i == 4)
             {
                 Chuoi_HTML += $"<div class='col-6'>" +
-                    $"<div class='Th_Mau_sac'><label for='{Ma_so_Mau_sac}'>" +
+                    $"<div class='Th_Mau_sac'style='padding:6px;><label for='{Ma_so_Mau_sac}'>" +
                     $"<input type='checkbox' name='Th_Mau_sac' id='{Ma_so_Mau_sac}' value='{Ma_so_Mau_sac}'>{Ten_Mau_sac}</label></div>";
             }
             else if (i == 3 || i == 7)
             {
-                Chuoi_HTML += $"<div class='Th_Mau_sac'><label for='{Ma_so_Mau_sac}'>" +
+                Chuoi_HTML += $"<div class='Th_Mau_sac' style='padding:6px;><label for='{Ma_so_Mau_sac}'>" +
                    $"<input type='checkbox' name='Th_Mau_sac' id='{Ma_so_Mau_sac}' value='{Ma_so_Mau_sac}'>{Ten_Mau_sac}</label></div></div>";
             }
             else
             {
-                Chuoi_HTML += $"<div class='Th_Mau_sac'><label for='{Ma_so_Mau_sac}'>" +
+                Chuoi_HTML += $"<div class='Th_Mau_sac' style='padding:6px;><label for='{Ma_so_Mau_sac}'>" +
                    $"<input type='checkbox' name='Th_Mau_sac' id='{Ma_so_Mau_sac}' value='{Ma_so_Mau_sac}'>{Ten_Mau_sac}</label></div>";
             }
+        }
+        Chuoi_HTML += $"</div></div></div>";
+        Chuoi_HTML += $"<div class='form-group row'><label class='col-4 col-form-label' for='Th_Tinh_nang'><strong>Tính năng</strong></label>" +
+   $"<div class='col-8'><div class='row'>";
+        for (int i = 0; i < Khach_Tham_quan.Danh_sach_Tinh_nang.Count; i++)
+        {
+            var Ma_so_Tinh_nang = Khach_Tham_quan.Danh_sach_Tinh_nang[i].GetAttribute("Ma_so");
+            var Ten_Tinh_nang = Khach_Tham_quan.Danh_sach_Tinh_nang[i].GetAttribute("Ten");
+            Chuoi_HTML += $"<div class='Th_Tinh_nang' style='padding:6px;'><label for='{Ma_so_Tinh_nang}'>" +
+                   $"<input type='checkbox' name='Th_Tinh_nang' id='{Ma_so_Tinh_nang}' value='{Ma_so_Tinh_nang}'>{Ten_Tinh_nang}</label></div>";
+
+
+        }
+        Chuoi_HTML += $"</div></div></div>";
+        Chuoi_HTML += $"<div class='form-group row'><label class='col-4 col-form-label' for='Th_CPU_Series'><strong>CPU Series</strong></label>" +
+   $"<div class='col-8'><div class='row'>";
+        for (int i = 0; i < Khach_Tham_quan.Danh_sach_CPU_Series.Count; i++)
+        {
+            var Ma_so_CPU_Series = Khach_Tham_quan.Danh_sach_CPU_Series[i].GetAttribute("Ma_so");
+            var Ten_CPU_Series = Khach_Tham_quan.Danh_sach_CPU_Series[i].GetAttribute("Ten");
+            Chuoi_HTML += $"<div class='Th_CPU_Series' style='padding:6px;'><label for='{Ma_so_CPU_Series}'>" +
+                   $"<input type='checkbox' name='Th_CPU_Series' id='{Ma_so_CPU_Series}' value='{Ma_so_CPU_Series}'>{Ten_CPU_Series}</label></div>";
+
+
         }
         Chuoi_HTML += $"</div></div></div>";
         Chuoi_HTML += "</form>";

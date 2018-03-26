@@ -62,7 +62,7 @@ public partial class XL_DICH_VU
         var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
         var Danh_sach_Laptop = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Danh_sach_Laptop")[0];
 
-        foreach (XmlElement Laptop_He_khach in Danh_sach_Laptop.SelectNodes("/Laptop"))
+        foreach (XmlElement Laptop_He_khach in Danh_sach_Laptop.GetElementsByTagName("Laptop"))
         {
             var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];
             var Danh_sach_Nhap_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Nhap_hang")[0];
@@ -80,7 +80,7 @@ public partial class XL_DICH_VU
         var Cong_ty_He_khach = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Cong_ty")[0];
         var Danh_sach_Laptop = (XmlElement)Du_lieu_He_khach.GetElementsByTagName("Danh_sach_Laptop")[0];
 
-        foreach (XmlElement Laptop_He_khach in Danh_sach_Laptop.SelectNodes("/Laptop"))
+        foreach (XmlElement Laptop_He_khach in Danh_sach_Laptop.GetElementsByTagName("Laptop"))
         {
             var Danh_sach_Ban_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Ban_hang")[0];
             var Danh_sach_Nhap_hang = Laptop_He_khach.GetElementsByTagName("Danh_sach_Nhap_hang")[0];

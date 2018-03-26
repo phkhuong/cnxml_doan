@@ -52,6 +52,14 @@ public class XL_KHACH_THAM_QUAN
     public List<XmlElement> Danh_sach_Laptop = new List<XmlElement>();
     public List<XmlElement> Danh_sach_Nhom_Laptop = new List<XmlElement>();
     public List<XmlElement> Danh_sach_Mau_sac = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Tinh_nang = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_CPU_Series = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Card_Man_hinh_Ngoai = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Chuan_Man_hinh = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Kich_thuoc_Man_hinh = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_Dung_luong_Ram = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_HDD = new List<XmlElement>();
+    public List<XmlElement> Danh_sach_SSD = new List<XmlElement>();
     public string Thong_bao = "";
     public List<XmlElement> Danh_sach_Laptop_Xem = new List<XmlElement>();
     public List<XmlElement> Danh_sach_Laptop_Chon = new List<XmlElement>();
