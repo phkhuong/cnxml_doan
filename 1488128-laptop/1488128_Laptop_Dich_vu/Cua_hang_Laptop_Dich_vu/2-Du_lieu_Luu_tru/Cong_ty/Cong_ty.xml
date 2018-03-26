@@ -1,0 +1,170 @@
+<Cong_ty Ma_so="CONG_TY_PHONG_VU" Ten="Công ty Phong Vũ" >
+	<Danh_sach_Nhom_Lap_top>
+		<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+		<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+		<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+		<Nhom_Lap_top Ma_so="APPLE" Ten="Apple" />
+		<Nhom_Lap_top Ma_so="LEVONO" Ten="Levono" />
+		<Nhom_Lap_top Ma_so="ACER" Ten="Acer" />
+	</Danh_sach_Nhom_Lap_top>
+	<Danh_sach_Mau_sac>
+		<Mau_sac Ma_so="BAC" Ten="Bạc" />
+		<Mau_sac Ma_so="HONG" Ten="Hồng" />
+		<Mau_sac Ma_so="VANG" Ten="Vàng" />
+		<Mau_sac Ma_so="GOLD" Ten="Gold" />
+		<Mau_sac Ma_so="TRANG" Ten="Trăng" />
+		<Mau_sac Ma_so="XAM" Ten="Xám" />
+		<Mau_sac Ma_so="DEN" Ten="Đen" />
+		<Mau_sac Ma_so="XANH" Ten="Xanh"/>
+	</Danh_sach_Mau_sac>
+	<Danh_sach_Tinh_nang>
+		<Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia" />
+		<Tinh_nang Ma_so="OFFICE" Ten="Office" />
+		<Tinh_nang Ma_so="GAMING" Ten="Gaming" />
+	</Danh_sach_Tinh_nang>
+	<Danh_sach_CPU_Series>
+		<CPU_Series Ma_so="INTEL_PENTIUM" Ten="Intel Pentium" />
+		<CPU_Series Ma_so="INTEL_CORE_I3_5TH_GEN" Ten="Intel Core i3 5th Gen" />
+		<CPU_Series Ma_so="INTEL_CORE_I3_6TH_GEN" Ten="Intel Core i3 6th Gen" />
+		<CPU_Series Ma_so="INTEL_CORE_I3_7TH_GEN" Ten="Intel Core i3 7th Gen" />
+		<CPU_Series Ma_so="INTEL_CORE_I5_7TH_GEN" Ten="Intel Core i5 7th Gen" />
+		<CPU_Series Ma_so="INTEL_CORE_I7_7TH_GEN" Ten="Intel Core i7 7th Gen" />
+		<CPU_Series Ma_so="INTEL_CORE_I5_8TH_GEN" Ten="Intel Core i5 8th Gen"/>
+		<CPU_Series Ma_so="INTEL_CORE_I7_8TH_GEN" Ten="Intel Core i7 8th Gen" />
+	</Danh_sach_CPU_Series>
+	<Danh_sach_Card_Man_hinh_Ngoai>
+		<Card_Man_hinh_Ngoai Ma_so="AMD_RADEON_520" Ten="AMD Radeon 520" />
+		<Card_Man_hinh_Ngoai Ma_so="AMD_RADEON_PRO_555" Ten="AMD Radeon PRO 555" />
+		<Card_Man_hinh_Ngoai Ma_so="AMD_RADEON_PRO_560" Ten="AMD Radeon PRO 560" />
+		<Card_Man_hinh_Ngoai Ma_so="NVIDIA_GEFORCE_930MX" Ten="NVIDIA Geforce 930MX"/>
+		<Card_Man_hinh_Ngoai Ma_so="NVIDIA_GEFORCE_940M" Ten="NVIDIA Geforce 940M"/>
+		<Card_Man_hinh_Ngoai Ma_so="NVIDIA_GEFORCE_940MX" Ten="NVIDIA Geforce 940MX"/>
+		<Card_Man_hinh_Ngoai Ma_so="NVIDIA_GEFORCE_GTX" Ten="NVIDIA Geforce GTX"/>
+	</Danh_sach_Card_Man_hinh_Ngoai>
+	<Danh_sach_Chuan_Man_hinh>
+		<Chuan_Man_hinh Ma_so="QHD" Ten="QHD" />
+		<Chuan_Man_hinh Ma_so="HD" Ten="HD" />
+		<Chuan_Man_hinh Ma_so="FHD" Ten="Full HD" />
+		<Chuan_Man_hinh Ma_so="2K" Ten="2K" />
+		<Chuan_Man_hinh Ma_so="RETINA" Ten="Retina" />
+	</Danh_sach_Chuan_Man_hinh>
+	<Danh_sach_Kich_thuoc_Man_hinh>
+		<Kich_thuoc_Man_hinh Ma_so="11_6" Ten="11.6&quot;"/>
+		<Kich_thuoc_Man_hinh Ma_so="12_3" Ten="12&quot;"/>
+		<Kich_thuoc_Man_hinh Ma_so="12_3" Ten="12.3&quot;"/>
+		<Kich_thuoc_Man_hinh Ma_so="13_3" Ten="13.3&quot;"/>
+		<Kich_thuoc_Man_hinh Ma_so="14" Ten="14&quot;"/>
+		<Kich_thuoc_Man_hinh Ma_so="15_4" Ten="15.4&quot;"/>
+		<Kich_thuoc_Man_hinh Ma_so="15_6" Ten="15.6&quot;"/>
+	</Danh_sach_Kich_thuoc_Man_hinh>
+	<Danh_sach_Dung_luong_Ram>
+		<Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+		<Dung_luong_Ram Ma_so="8" Ten="8GB"/>
+		<Dung_luong_Ram Ma_so="16" Ten="16GB"/>
+	</Danh_sach_Dung_luong_Ram>
+	<Danh_sach_HDD>
+		<HDD Ma_so="HDD_500GB" Ten="500GB"/>
+		<HDD Ma_so="HDD_1TB" Ten="1TB"/>
+	</Danh_sach_HDD>
+	<Danh_sach_SDD>
+		<SSD Ma_so="SSD_128GB" Ten="128GB"/>
+		<SSD Ma_so="SSD_256GB" Ten="256GB"/>
+		<SSD Ma_so="SSD_512GB" Ten="512GB"/>
+	</Danh_sach_SDD>
+	<Danh_sach_Cua_hang>
+		<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+		<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+		<Cua_hang  Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
+	</Danh_sach_Cua_hang>
+	<Danh_sach_Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_1" Ho_ten="Nguyễn thị bé Nhỏ" Ten_Dang_nhap="NV_1" Mat_khau="NV_1">
+			<Nhom_Nguoi_dung Ma_so="BAN_HANG" Ten="Nhân viên Nhập hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+			<Danh_sach_Nhom_Lap_top>
+				<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+				<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+				<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+        <Nhom_Lap_top Ma_so="APPLE" Ten="Apple" />
+        <Nhom_Lap_top Ma_so="LEVONO" Ten="Levono" />
+        <Nhom_Lap_top Ma_so="ACER" Ten="Acer" />
+			</Danh_sach_Nhom_Lap_top>
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_2" Ho_ten="Nguyễn thị bé Bé" Ten_Dang_nhap="NV_2" Mat_khau="NV_2">
+			<Nhom_Nguoi_dung Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+			<Danh_sach_Nhom_Lap_top>
+				<Nhom_Lap_top Ma_so="APPLE" Ten="Apple" />
+				<Nhom_Lap_top Ma_so="LEVONO" Ten="Levono" />
+				<Nhom_Lap_top Ma_so="ACER" Ten="Acer" />
+			</Danh_sach_Nhom_Lap_top>
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_3" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_3" Mat_khau="NV_3">
+			<Nhom_Nguoi_dung Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+			<Danh_sach_Nhom_Lap_top>
+				<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+				<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+				<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+			</Danh_sach_Nhom_Lap_top>
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_4" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_4" Mat_khau="NV_4">
+			<Nhom_Nguoi_dung Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+			<Danh_sach_Nhom_Lap_top>
+				<Nhom_Lap_top Ma_so="APPLE" Ten="Apple" />
+				<Nhom_Lap_top Ma_so="LEVONO" Ten="Levono" />
+				<Nhom_Lap_top Ma_so="ACER" Ten="Acer" />
+			</Danh_sach_Nhom_Lap_top>
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_5" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_5" Mat_khau="NV_5">
+			<Nhom_Nguoi_dung Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
+			<Danh_sach_Nhom_Lap_top>
+				<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+				<Nhom_Lap_top Ma_so="DELL" Ten="Dell" />
+				<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+			</Danh_sach_Nhom_Lap_top>
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_6" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_6" Mat_khau="NV_6">
+			<Nhom_Nguoi_dung Ma_so="BAN_HANG" Ten="Nhân viên Bán hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
+			<Danh_sach_Nhom_Lap_top>
+				<Nhom_Lap_top Ma_so="APPLE" Ten="Apple" />
+				<Nhom_Lap_top Ma_so="LEVONO" Ten="Levono" />
+				<Nhom_Lap_top Ma_so="ACER" Ten="Acer" />
+			</Danh_sach_Nhom_Lap_top>
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_7" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_7" Mat_khau="NV_7">
+			<Nhom_Nguoi_dung Ma_so="GIAO_HANG" Ten="Nhân viên Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_8" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_8" Mat_khau="NV_8">
+			<Nhom_Nguoi_dung Ma_so="GIAO_HANG" Ten="Nhân viên Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_9" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_9" Mat_khau="NV_9">
+			<Nhom_Nguoi_dung Ma_so="GIAO_HANG" Ten="Nhân viên Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_10" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_10" Mat_khau="NV_10">
+			<Nhom_Nguoi_dung Ma_so="GIAO_HANG" Ten="Nhân viên Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_11" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_11" Mat_khau="NV_11">
+			<Nhom_Nguoi_dung Ma_so="GIAO_HANG" Ten="Nhân viên Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_12" Ho_ten="Nguyễn thị bé Xíu" Ten_Dang_nhap="NV_12" Mat_khau="NV_12">
+			<Nhom_Nguoi_dung Ma_so="GIAO_HANG" Ten="Nhân viên Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_3" Ten="Cửa hàng Phong Vũ Bình Dương" Dia_chi="408 Đại lộ Bình Dương, P. Phú Lợi, TP. Thủ Dầu Một, Tỉnh Bình Dương" So_dien_thoai="(0274) 3856593" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_13" Ho_ten="Nguyễn thị bé Lớn" Ten_Dang_nhap="NV_13" Mat_khau="NV_13">
+			<Nhom_Nguoi_dung Ma_so="QUAN_LY_BAN_HANG" Ten="Quản lý Bán hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_1" Ten="Cửa hàng Phong Vũ Cộng Hoà - Tân Bình" Dia_chi="17A Đường Cộng Hòa, Phường 4, Quận Tân Bình, TP.HCM" So_dien_thoai="(028) 62908777" />
+		</Nguoi_dung>
+		<Nguoi_dung Ma_so="NV_14" Ho_ten="Nguyễn thị bé Lớn" Ten_Dang_nhap="NV_14" Mat_khau="NV_14">
+			<Nhom_Nguoi_dung Ma_so="QUAN_LY_GIAO_HANG" Ten="Quản lý Giao hàng" />
+			<Cua_hang  Ma_so="CUA_HANG_2" Ten="Cửa hàng Phong Vũ Nguyễn Thị Minh Khai" Dia_chi="264A – 264B – 264C Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM" So_dien_thoai="(028) 62908777" />
+		</Nguoi_dung>
+	</Danh_sach_Nguoi_dung>
+</Cong_ty>

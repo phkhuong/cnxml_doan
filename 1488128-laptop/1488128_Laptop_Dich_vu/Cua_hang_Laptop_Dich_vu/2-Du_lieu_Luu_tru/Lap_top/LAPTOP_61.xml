@@ -1,0 +1,17 @@
+﻿<Laptop Ma_so="LAPTOP_61" Ten="Máy xách tay/ Laptop Acer SF514-52T-50G2 (NX.GTMSV.001) I5-8550U (Xanh)" Don_gia_Ban="24990000" CPU="i5-8250U"
+Loai_Ram="DDR3" Card_Man_hinh_Onboard="Intel HD Graphics 620"
+He_dieu_hanh="Windows 10" Trong_luong="0.97" Bao_hanh="12">
+	<Nhom_Lap_top Ma_so="ACER" Ten="ACER" />
+	<Tinh_nang Ma_so="OFFICE" Ten="Office"/>
+	<CPU_Series Ma_so="INTEL_CORE_I5_8TH_GEN" Ten="Intel Core i5 8th Gen" />
+	<Chuan_Man_hinh Ma_so="FHD" Ten="Full HD"/>
+	<Mau_sac Ma_so="XANH" Ten="Xanh"/>
+	<Kich_thuoc_Man_hinh Ma_so="14_0" Ten="14.0&quot;"/>
+	<Dung_luong_Ram Ma_so="8" Ten="8GB"/>
+	<Card_Man_hinh_Ngoai Ma_so="" Ten=""/>
+	<HDD Ma_so="" Ten=""/>
+	<SSD Ma_so="" Ten=""/>
+	<Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+	<Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+</Laptop>
+

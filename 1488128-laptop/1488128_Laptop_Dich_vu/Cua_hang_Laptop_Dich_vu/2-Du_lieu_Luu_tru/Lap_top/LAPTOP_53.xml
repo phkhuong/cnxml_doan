@@ -1,0 +1,25 @@
+
+        <Laptop 
+          Ma_so="LAPTOP_53" 
+          Ten="Máy xách tay/ Laptop Lenovo Ideapad 320-14IKBN-80XK0047VN (i5-7200U) (Đen)" 
+          Don_gia_Ban="11490000" 
+          CPU="i5-7200U"
+          Card_Man_hinh_Onboard="Intel HD Graphics 620"
+          He_dieu_hanh="Free DOS" 
+          Trong_luong="1.7" 
+          Bao_hanh="12"
+        >
+          <Nhom_Lap_top Ma_so="LENOVO" Ten="Lenovo" />
+          <Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia"/>
+          <CPU_Series Ma_so="INTEL_CORE_I5_7TH_GEN" Ten="Intel Core i5 7th Gen" />
+          <Chuan_Man_hinh Ma_so="FHD" Ten="Full HD"/>
+          <Mau_sac Ma_so="DEN" Ten="Đen"/>
+          <Kich_thuoc_Man_hinh Ma_so="14_0" Ten="14.0&quot;"/>
+          <Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+          <Card_Man_hinh_Ngoai Ma_so="" Ten="" />
+          <HDD Ma_so="HDD_1TB" Ten="1TB"/>
+          <SSD Ma_so="" Ten=""/>
+          <Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+          <Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+        </Laptop>
+      

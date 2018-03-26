@@ -1,0 +1,17 @@
+﻿<Laptop Ma_so="LAPTOP_67" Ten="Máy xách tay/ Laptop Acer A315-51-39DJ (NX.GNPSV.030) (Đen)" Don_gia_Ban="10999000" CPU="i3-7130U"
+Loai_Ram="" Card_Man_hinh_Onboard="Intel HD Graphics 620"
+He_dieu_hanh="Free dos" Trong_luong="2.0" Bao_hanh="12">
+	<Nhom_Lap_top Ma_so="ACER" Ten="ACER" />
+	<Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia"/>
+	<CPU_Series Ma_so="INTEL_CORE_I3_7TH_GEN" Ten="Intel Core i3 7th Gen" />
+	<Chuan_Man_hinh Ma_so="FHD" Ten="Full HD"/>
+	<Mau_sac Ma_so="DEN" Ten="Đen"/>
+	<Kich_thuoc_Man_hinh Ma_so="15_6" Ten="15.6&quot;"/>
+	<Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+	<Card_Man_hinh_Ngoai Ma_so="" Ten=""/>
+	<HDD Ma_so="HDD_1TB" Ten="1TB"/>
+	<SSD Ma_so="" Ten=""/>
+	<Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+	<Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+</Laptop>
+

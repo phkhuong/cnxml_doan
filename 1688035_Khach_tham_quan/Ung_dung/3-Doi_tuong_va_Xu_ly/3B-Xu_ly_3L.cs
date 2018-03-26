@@ -89,7 +89,7 @@ public class XL_UNG_DUNG
             }
             else if (Ma_so_Nhom_Nguoi_dung_Nhan_vien == "BAN_HANG")
             {
-                var Dia_chi_MH_Dang_nhap = "http://localhost:64917/1-Man_hinh_Giao_dien/MH_Dang_nhap.cshtml";
+                var Dia_chi_MH_Dang_nhap = "http://localhost:64820/1-Man_hinh_Giao_dien/MH_Dang_nhap.cshtml";
                 var Tham_so = $"Th_Ma_so_Chuc_nang=DANG_NHAP&Th_Ten_Dang_nhap={Ten_Dang_nhap}&Th_Mat_khau={Mat_khau}";
                 var Dia_chi_Xu_ly = $"{Dia_chi_MH_Dang_nhap}?{Tham_so}";
                 HttpContext.Current.Response.Redirect(Dia_chi_Xu_ly);
@@ -110,7 +110,7 @@ public class XL_UNG_DUNG
             }
             else if (Ma_so_Nhom_Nguoi_dung_Quan_ly == "QUAN_LY_BAN_HANG")
             {
-                var Dia_chi_MH_Dang_nhap = "http://localhost:64917/1-Man_hinh_Giao_dien/MH_Dang_nhap.cshtml";
+                var Dia_chi_MH_Dang_nhap = "http://localhost:64819/1-Man_hinh_Giao_dien/MH_Dang_nhap.cshtml";
                 var Tham_so = $"Th_Ma_so_Chuc_nang=DANG_NHAP&Th_Ten_Dang_nhap={Ten_Dang_nhap}&Th_Mat_khau={Mat_khau}";
                 var Dia_chi_Xu_ly = $"{Dia_chi_MH_Dang_nhap}?{Tham_so}";
                 HttpContext.Current.Response.Redirect(Dia_chi_Xu_ly);

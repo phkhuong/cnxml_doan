@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{98E03DAD-11F5-4F94-A8AC-44C782F4061A}</ProjectGuid>
+    <ProjectGuid>{C2B94084-A787-40B6-B4EB-32F09FC09237}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -84,98 +84,88 @@
     <Content Include="2-Du_lieu_Luu_tru\Cong_ty\Cong_ty.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_1.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_10.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_11.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_12.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_13.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_14.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_15.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_16.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_17.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_18.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_19.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_2.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_20.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_21.xml">
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_1.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_10.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_11.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_12.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_13.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_14.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_15.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_16.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_17.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_18.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_19.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_2.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_20.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_21.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_22.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_23.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_24.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_25.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_26.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_27.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_28.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_29.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_3.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_30.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_31.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_32.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_33.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_34.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_35.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_36.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_37.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_38.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_39.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_4.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_40.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_41.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_42.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_43.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_44.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_45.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_46.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_47.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_48.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_49.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_5.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_50.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_51.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_52.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_53.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_54.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_55.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_56.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_57.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_58.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_59.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_6.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_60.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_61.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_62.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_63.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_64.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_65.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_66.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_67.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_68.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_69.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_7.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_70.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_71.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_72.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_73.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_74.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_75.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_76.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_77.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_78.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_79.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_8.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_80.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Laptop\LAPTOP_9.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_1.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_2.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_3.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_4.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_5.xml" />
-    <Content Include="2-Du_lieu_Luu_tru\Phieu_dat\PHIEU_DAT_6.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_22.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_23.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_24.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_25.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_26.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_27.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_28.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_29.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_3.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_30.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_31.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_32.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_33.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_34.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_35.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_36.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_37.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_38.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_39.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_4.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_40.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_41.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_42.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_43.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_44.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_45.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_46.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_47.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_48.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_49.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_5.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_50.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_51.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_52.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_53.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_54.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_55.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_56.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_57.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_58.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_59.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_6.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_60.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_61.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_62.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_63.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_64.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_65.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_66.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_67.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_68.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_69.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_7.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_70.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_71.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_72.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_73.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_74.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_75.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_76.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_77.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_78.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_79.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_8.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_80.xml" />
+    <Content Include="2-Du_lieu_Luu_tru\Lap_top\LAPTOP_9.xml" />
     <Content Include="Media\LAPTOP_1.png" />
     <Content Include="Media\LAPTOP_10.png" />
     <Content Include="Media\LAPTOP_11.png" />
@@ -272,9 +262,7 @@
     <Content Include="Media\LAPTOP_80.jpg" />
     <Content Include="Media\LAPTOP_80.png" />
     <Content Include="Media\LAPTOP_9.png" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3-Doi_tuong_va_Xu_ly\3A-Mo_hinh_Doi_tuong.cs" />
@@ -282,13 +270,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1-Dich_vu_Giao_tiep\DV_Khach_tham_quan.cshtml" />
-    <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Giao_hang.cshtml" />
-    <Content Include="1-Dich_vu_Giao_tiep\DV_Quan_ly_Giao_hang.cshtml" />
-    <Content Include="1-Dich_vu_Giao_tiep\DV_Nhan_vien_Nhap_hang.cshtml" />
     <Content Include="1-Dich_vu_Giao_tiep\DV_Chinh.cshtml" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -296,7 +279,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="2-Du_lieu_Luu_tru\Phieu_dat\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

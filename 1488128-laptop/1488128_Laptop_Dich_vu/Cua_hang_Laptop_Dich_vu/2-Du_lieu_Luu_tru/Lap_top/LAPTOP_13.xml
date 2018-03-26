@@ -1,0 +1,16 @@
+<Laptop Ma_so="LAPTOP_13" Ten="Máy xách tay/ Laptop Asus X441UA-WX027T (I3-6100U) (Vàng đồng)" Don_gia_Ban="9990000" CPU="i3-6100U"
+Loai_Ram="DDR4 2133Mhz" Card_Man_hinh_Onboard="Intel HD Graphics"
+He_dieu_hanh="Free DOS" Trong_luong="1.75" Bao_hanh="24">
+	<Nhom_Lap_top Ma_so="ASUS" Ten="Asus" />
+	<Tinh_nang Ma_so="OFFICE" Ten="Office"/>
+	<CPU_Series Ma_so="INTEL_CORE_I3_6TH_GEN" Ten="Intel Core i3 6th Gen" />
+	<Chuan_Man_hinh Ma_so="HD" Ten="HD"/>
+	<Mau_sac Ma_so="VANG" Ten="Vàng"/>
+	<Kich_thuoc_Man_hinh Ma_so="14" Ten="14.0&quot;"/>
+	<Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+	<Card_Man_hinh_Ngoai Ma_so="" Ten=""/>
+	<HDD Ma_so="HDD_1TB" Ten="1TB"/>
+	<SSD Ma_so="" Ten=""/>
+	<Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+	<Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+</Laptop>

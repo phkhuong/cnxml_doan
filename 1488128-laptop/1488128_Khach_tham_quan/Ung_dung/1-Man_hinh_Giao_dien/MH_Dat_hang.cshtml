@@ -1,0 +1,51 @@
+﻿@using System.Xml;
+@{
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Khach_Tham_quan = (XL_KHACH_THAM_QUAN)Session["Khach_Tham_quan"];
+    var Chuoi_HTML_Ket_qua = "";
+    var danh_sach = Khach_Tham_quan.Danh_sach_Lap_top_Chon;
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    if (Ma_so_Chuc_nang == "GHI_PHIEU_DAT_HANG_MOI")
+    {
+        var Ho_ten = Request["Th_Ho_ten"];
+        var Dia_chi = Request["Th_Dia_chi"];
+        var Dien_thoai = Request["Th_Dien_thoai"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Ghi_Phieu_Dat_hang_Moi(Ho_ten, Dia_chi, Dien_thoai,Khach_Tham_quan);
+    }
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body style="font-family:Arial;width:100%;box-sizing:border-box;
+              margin:0px;padding:0px;overflow-x:hidden" class="container-fluid">
+    <div class="container-fluid">
+        @Html.Raw(Chuoi_HTML_Ket_qua)
+    </div>
+        <form method='post'>
+            <input name='Th_Ma_so_Chuc_nang' type='hidden' value='GHI_PHIEU_DAT_HANG_MOI' style='margin-bottom:10px'/>
+            <br />
+            <input name='Th_Ho_ten' placeholder="Ho ten" required="" style="margin-bottom:10px"/>
+            <br />
+            <input name="Th_Dia_chi" placeholder="Dia chi" required="" style="margin-bottom:10px">
+            <br />
+            <input name="Th_Dien_thoai" placeholder="Dien thoai" required="" style="margin-bottom:10px">
+            <br />
+            <button type='submit' class='btn btn-danger'>Duyet don hang</button>
+            
+        </form>
+   
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>

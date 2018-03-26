@@ -1,0 +1,16 @@
+<Laptop Ma_so="LAPTOP_6" Ten="Máy xách tay/ Laptop HP Pavilion 15-cc137TX (3CH63PA) (Vàng)" Don_gia_Ban="15190000" CPU="i5-8250U"
+Loai_Ram="DDR4 2133Mhz" Card_Man_hinh_Onboard="Intel HD Graphics"
+He_dieu_hanh="Free DOS" Trong_luong="1.9" Bao_hanh="12">
+	<Nhom_Lap_top Ma_so="HP" Ten="HP" />
+	<Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia"/>
+	<CPU_Series Ma_so="INTEL_CORE_I5_8TH_GEN" Ten="Intel Core i5 8th Gen" />
+	<Chuan_Man_hinh Ma_so="HD" Ten="HD"/>
+	<Mau_sac Ma_so="VANG" Ten="Vàng"/>
+	<Kich_thuoc_Man_hinh Ma_so="15_6" Ten="15.6&quot;"/>
+	<Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+	<Card_Man_hinh_Ngoai Ma_so="NVIDIA_GEFORCE_940M" Ten="NVIDIA GeForce 940M"/>
+	<HDD Ma_so="HDD_1TB" Ten="1TB"/>
+	<SSD Ma_so="" Ten=""/>
+	<Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+	<Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+</Laptop>

@@ -1,0 +1,17 @@
+﻿<Laptop Ma_so="LAPTOP_63" Ten="Máy xách tay/ Laptop Acer Spin 3 SP314-51-36JE (NX.GUWSV.005) I3-7130U (Xám)" Don_gia_Ban="13490000" CPU="i3-7130U"
+Loai_Ram="DDR4" Card_Man_hinh_Onboard="Intel HD Graphics 620"
+He_dieu_hanh="Windows 10 SL" Trong_luong="1.7" Bao_hanh="12">
+	<Nhom_Lap_top Ma_so="ACER" Ten="ACER" />
+	<Tinh_nang Ma_so="MULTIMEDIA" Ten="Multimedia"/>
+	<CPU_Series Ma_so="INTEL_CORE_I3_7TH_GEN" Ten="Intel Core i3 7th Gen" />
+	<Chuan_Man_hinh Ma_so="FHD" Ten="Full HD"/>
+	<Mau_sac Ma_so="XAM" Ten="Xám"/>
+	<Kich_thuoc_Man_hinh Ma_so="14_0" Ten="14.0&quot;"/>
+	<Dung_luong_Ram Ma_so="4" Ten="4GB"/>
+	<Card_Man_hinh_Ngoai Ma_so="" Ten=""/>
+	<HDD Ma_so="HDD_1TB" Ten="1TB"/>
+	<SSD Ma_so="" Ten=""/>
+	<Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+	<Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+</Laptop>
+

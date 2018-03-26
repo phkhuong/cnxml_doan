@@ -1,0 +1,25 @@
+
+        <Laptop 
+          Ma_so="LAPTOP_36" 
+          Ten="Máy xách tay/ Laptop MacBook 12 inches MNYN2ZP/A (Vàng hồng)" 
+          Don_gia_Ban="40300000" 
+          CPU="M3"
+          Card_Man_hinh_Onboard="Intel HD Graphics 615"
+          He_dieu_hanh="OS X" 
+          Trong_luong="1.35" 
+          Bao_hanh="12"
+        >
+          <Nhom_Lap_top Ma_so="APPLE" Ten="Apple" />
+          <Tinh_nang Ma_so="OFFICE" Ten="Office"/>
+          <CPU_Series Ma_so="INTEL_CORE_M3" Ten="Intel Core M3" />
+          <Chuan_Man_hinh Ma_so="RETINA" Ten="Retina"/>
+          <Mau_sac Ma_so="VANG" Ten="Vàng"/>
+          <Kich_thuoc_Man_hinh Ma_so="12_0" Ten="12.0&quot;"/>
+          <Dung_luong_Ram Ma_so="8" Ten="8GB"/>
+          <Card_Man_hinh_Ngoai Ma_so="" Ten="" />
+          <HDD Ma_so="" Ten=""/>
+          <SSD Ma_so="SSD_512GB" Ten="512GB"/>
+          <Danh_sach_Ban_hang></Danh_sach_Ban_hang>
+          <Danh_sach_Dat_hang></Danh_sach_Dat_hang>
+        </Laptop>
+      
