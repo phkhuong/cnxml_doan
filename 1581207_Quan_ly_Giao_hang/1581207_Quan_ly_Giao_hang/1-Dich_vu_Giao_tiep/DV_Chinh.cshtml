@@ -1,0 +1,35 @@
+﻿@using System.Xml;
+@{
+    // *********Khởi động Dữ liệu nguồn/nội bộ ********
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+
+    //*********Khai báo Biến/Đối tượng :Nhận & Kết quả *********
+    var Ma_so_Xu_ly = ""; // Biến Nhận
+    var Chuoi_Kq = ""; // Biến Kêt quả
+
+    //*********Xử lý Nhập liệu Nếu có + Tạo Kết quả Nếu Hợp lệ  *********
+    if (Request["Ma_so_Xu_ly"] != null)
+    {
+        Ma_so_Xu_ly = Request["Ma_so_Xu_ly"];// Nhận Tham số
+        var Bo_doc = new StreamReader(Request.InputStream);
+        var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
+        if (Ma_so_Xu_ly == "GHI_PHIEU_DAT_MOI")
+        {
+            Chuoi_Kq = Ung_dung.Ghi_Phieu_dat_Moi(Chuoi_Nhan);
+        }
+        else if (Ma_so_Xu_ly == "GHI_TINH_TRANG_MOI")
+        {
+            var Ma_so_Phieu_dat = Request["Ma_so_Phieu_dat"];
+            var Tinh_trang_moi = Request["Tinh_trang_moi"];
+
+            Chuoi_Kq = Ung_dung.Ghi_Tinh_trang_Moi(Ma_so_Phieu_dat, Tinh_trang_moi);
+
+        }
+    }
+
+
+    // Xử lý trả Kết quả
+    Response.Write(Chuoi_Kq.ToString());
+}
+
+

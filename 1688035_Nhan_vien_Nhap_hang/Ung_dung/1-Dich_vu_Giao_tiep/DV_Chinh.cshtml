@@ -1,0 +1,30 @@
+﻿@using System.Xml
+@{
+    // *********Khởi động Dữ liệu nguồn/nội bộ ********
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+
+    //*********Khai báo Biến/Đối tượng :Nhận & Kết quả *********
+    var Ma_so_Xu_ly = ""; // Biến Nhận
+    var Chuoi_Kq = ""; // Biến Kêt quả
+
+    //*********Xử lý Nhập liệu Nếu có + Tạo Kết quả Nếu Hợp lệ  *********
+    if (Request["Ma_so_Xu_ly"] != null)
+    {
+        Ma_so_Xu_ly = Request["Ma_so_Xu_ly"];// Nhận Tham số
+        var Bo_doc = new StreamReader(Request.InputStream);
+        var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
+        if (Ma_so_Xu_ly == "GHI_THAY_DOI_SO_LUONG_TON_THEO_PHIEU_DAT")
+        {
+            var Tai_lieu = new XmlDocument();
+            Tai_lieu.LoadXml(Chuoi_Nhan);
+            var Danh_sach_Laptop = Tai_lieu.DocumentElement;
+            Chuoi_Kq = Ung_dung.Ghi_Thay_doi_So_luong_Ton(Danh_sach_Laptop);
+
+        }
+    }
+
+
+    // Xử lý trả Kết quả
+    Response.Write(Chuoi_Kq.ToString());
+
+}

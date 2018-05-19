@@ -29,6 +29,16 @@ public class XL_UNG_DUNG
             else
                 Ung_dung.Khoi_dong_Co_loi = true;
         }
+        else
+        {
+            var Nguoi_dung_Dang_nhap =  (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
+            if(Nguoi_dung_Dang_nhap != null)
+            {
+                var Danh_sach_Phieu_dat_cua_Nguoi_dung = Ung_dung.Danh_sach_Phieu_dat.FindAll(
+                x => x.Nhan_vien != null && x.Nhan_vien.GetAttribute("Ma_so") == Nguoi_dung_Dang_nhap.Ma_so);
+                Nguoi_dung_Dang_nhap.Danh_sach_Phieu_dat = Danh_sach_Phieu_dat_cua_Nguoi_dung;
+            }
+        }
         return Ung_dung;
     }
 
@@ -122,7 +132,7 @@ public class XL_UNG_DUNG
     public string Ghi_Tinh_trang_Moi(string Ma_so_Phieu_dat, string Tinh_trang_moi)
     {
         var Nguoi_dung_Dang_nhap = (XL_NGUOI_DUNG_DANG_NHAP)HttpContext.Current.Session["Nguoi_dung_Dang_nhap"];
-
+        Nguoi_dung_Dang_nhap.Thong_bao = "Đã cập nhật tình trạng của " + Ma_so_Phieu_dat;
         var Hop_le = Ma_so_Phieu_dat != null && 
             (Tinh_trang_moi == "1" || Tinh_trang_moi == "2" || Tinh_trang_moi == "3");
         if (Hop_le)
@@ -130,24 +140,55 @@ public class XL_UNG_DUNG
             var Kq_Ghi = XL_LUU_TRU.Ghi_Tinh_trang_moi(Ma_so_Phieu_dat, Tinh_trang_moi);
             if (Kq_Ghi == "OK")
             {
-                Nguoi_dung_Dang_nhap.Thong_bao = "Đã cập nhật tình trạng của " + Ma_so_Phieu_dat;
-                var Phieu_dat = Nguoi_dung_Dang_nhap.Danh_sach_Phieu_dat.First(p => p.Ma_so == Ma_so_Phieu_dat);
-                switch (Tinh_trang_moi)
+                Kq_Ghi = XL_LUU_TRU.Ghi_Tinh_trang_moi_Phan_he_Quan_ly_Giao_hang(Ma_so_Phieu_dat, Tinh_trang_moi);
+                if(Kq_Ghi == "OK")
                 {
-                    case "1":
-                        Phieu_dat.Tinh_trang = "DA_THANH_TOAN";
-                        Phieu_dat.Ngay_Thanh_toan = DateTime.Now;
-                        break;
-                    case "2":
-                        Phieu_dat.Tinh_trang = "HUY";
-                        Phieu_dat.Ngay_huy = DateTime.Now;
-                        break;
-                    case "3":
-                        Phieu_dat.Tinh_trang = "CHO_GIAO_HANG";
-                        Phieu_dat.Ngay_Phan_cong = DateTime.Now;
-                        break;
+                    var Phieu_dat = Nguoi_dung_Dang_nhap.Danh_sach_Phieu_dat.First(p => p.Ma_so == Ma_so_Phieu_dat);
+                    switch (Tinh_trang_moi)
+                    {
+                        case "1":
+                            XmlElement Danh_sach_Laptop;
+                            var Chuoi_XML = "<Danh_sach_Laptop />";
+                            var Tai_lieu = new XmlDocument();
+                            Tai_lieu.LoadXml(Chuoi_XML);
+                            Danh_sach_Laptop = Tai_lieu.DocumentElement;
+                            foreach (XmlElement Laptop in Phieu_dat.Danh_sach_Laptop)
+                            {
+                                var Laptop_cua_DS = Tai_lieu.ImportNode(Laptop, true);
+                                Danh_sach_Laptop.AppendChild(Laptop_cua_DS);
+                            }
+                            Kq_Ghi = XL_LUU_TRU.Ghi_Thay_doi_So_luong_Ton(Danh_sach_Laptop, XL_LUU_TRU.Dia_chi_Phan_he_Nhan_vien_Nhap_hang);
+                            if (Kq_Ghi == "OK")
+                            {
+                                Kq_Ghi = XL_LUU_TRU.Ghi_Thay_doi_So_luong_Ton(Danh_sach_Laptop, XL_LUU_TRU.Dia_chi_Phan_he_Khach_Tham_quan);
+                                if (Kq_Ghi == "OK")
+                                {
+                                    Phieu_dat.Tinh_trang = "DA_THANH_TOAN";
+                                    Phieu_dat.Ngay_Thanh_toan = DateTime.Now;
+                                }
+                                else
+                                {
+                                    Nguoi_dung_Dang_nhap.Thong_bao = "Lỗi Hệ thống - Xin Thực hiện lại  ";
+                                }
+                            }
+                            else
+                            {
+                                Nguoi_dung_Dang_nhap.Thong_bao = "Lỗi Hệ thống - Xin Thực hiện lại  ";
+                            }
+                            break;
+                        case "2":
+                            Phieu_dat.Tinh_trang = "HUY";
+                            Phieu_dat.Ngay_huy = DateTime.Now;
+                            break;
+                        case "3":
+                            Phieu_dat.Tinh_trang = "CHO_GIAO_HANG";
+                            Phieu_dat.Ngay_Phan_cong = DateTime.Now;
+                            break;
+                    }
                 }
-                
+                else
+                    Nguoi_dung_Dang_nhap.Thong_bao = "Lỗi Hệ thống - Xin Thực hiện lại  ";
+
             }
             else
                 Nguoi_dung_Dang_nhap.Thong_bao = "Lỗi Hệ thống - Xin Thực hiện lại  ";
@@ -171,6 +212,43 @@ public class XL_UNG_DUNG
                  $"{XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Phieu_dat(Nguoi_dung_Dang_nhap.Danh_sach_Phieu_dat_Xem)}" +
              $"</div>";
         return Chuoi_HTML;
+
+    }
+
+    public string Ghi_Phan_cong_Moi(string Ma_so_Phieu_dat, string Ma_so_Nhan_vien)
+    {
+
+        var Phieu_dat = Danh_sach_Phieu_dat.FirstOrDefault(x => x.Ma_so == Ma_so_Phieu_dat);
+        var Nhan_vien = Danh_sach_Nguoi_dung.FirstOrDefault(Nguoi_dung => Nguoi_dung.GetAttribute("Ma_so") == Ma_so_Nhan_vien);
+
+        var Hop_le = Phieu_dat != null && Nhan_vien != null;
+        var Chuoi_Kq_Ghi = "OK";
+        if (Hop_le)
+        {
+            Phieu_dat.Ngay_Phan_cong = DateTime.Now;
+            Phieu_dat.Tinh_trang = "CHO_GIAO_HANG";
+            var Chuoi_XML = "<Nhan_vien />";
+            var Tai_lieu = new XmlDocument();
+            Tai_lieu.LoadXml(Chuoi_XML);
+            XmlElement nv;
+            if (Phieu_dat.Nhan_vien != null)
+            {
+                nv = Phieu_dat.Nhan_vien;
+            }
+            else
+            {
+                nv = Tai_lieu.DocumentElement;
+                Phieu_dat.Nhan_vien = nv;
+            }
+            nv.SetAttribute("Ma_so", Ma_so_Nhan_vien);
+            nv.SetAttribute("Ho_ten", Nhan_vien.GetAttribute("Ho_ten"));
+
+        }
+        else
+            Chuoi_Kq_Ghi = "Lỗi Hệ thống - Xin Thực hiện lại ";
+
+        var Chuoi_Xml_Kq = $"<DU_LIEU Kq='{Chuoi_Kq_Ghi}' />";
+        return Chuoi_Xml_Kq;
 
     }
 }
@@ -382,6 +460,9 @@ public partial class XL_LUU_TRU
 
     public static string Dia_chi_Dich_vu = "http://localhost:61828";
     static string Dia_chi_Dich_vu_Du_lieu = $"{Dia_chi_Dich_vu}/1-Dich_vu_Giao_tiep/DV_Nhan_vien_Giao_hang.cshtml";
+    public static string Dia_chi_Phan_he_Khach_Tham_quan = "http://localhost:64785/1-Dich_vu_Giao_tiep/DV_Chinh.cshtml";
+    public static string Dia_chi_Phan_he_Nhan_vien_Nhap_hang = "http://localhost:65475/1-Dich_vu_Giao_tiep/DV_Chinh.cshtml";
+    static string Dia_chi_Phan_he_Quan_ly_Giao_hang = "http://localhost:64784/1-Dich_vu_Giao_tiep/DV_Chinh.cshtml";
     // Đọc
     public static XmlElement Doc_Du_lieu()
     {
@@ -411,37 +492,6 @@ public partial class XL_LUU_TRU
     }
 
     // Ghi 
-    public static string Ghi_Nhap_hang_Moi(XmlElement Dien_thoai, XmlElement Nhap_hang)
-    {
-        var Kq = "OK";
-
-        try
-        {
-            var Xu_ly = new WebClient();
-            Xu_ly.Encoding = System.Text.Encoding.UTF8;
-            var Tham_so = $"Ma_so_Xu_ly=GHI_NHAP_HANG_MOI&Ma_so_Dien_thoai={Dien_thoai.GetAttribute("Ma_so")}";
-            var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
-            var Chuoi_XML_Nhap_hang = Nhap_hang.OuterXml;
-            var Chuoi_XML_Kq = Xu_ly.UploadString(Dia_chi_Xu_ly, Chuoi_XML_Nhap_hang).Trim();
-            var Tai_lieu = new XmlDocument();
-            Tai_lieu.LoadXml(Chuoi_XML_Kq);
-            Kq = Tai_lieu.DocumentElement.GetAttribute("Kq");
-        }
-        catch (Exception Loi)
-        {
-            Kq = Loi.Message;
-        }
-        if (Kq == "OK")
-        {
-            var So_luong_Ton = int.Parse(Dien_thoai.GetAttribute("So_luong_Ton"));
-            var So_luong = int.Parse(Nhap_hang.GetAttribute("So_luong"));
-            So_luong_Ton += So_luong;
-            Dien_thoai.SetAttribute("So_luong_Ton", So_luong_Ton.ToString());
-
-        }
-        return Kq;
-
-    }
 
     public static string Ghi_Tinh_trang_moi(string Ma_so_Phieu_dat, string Tinh_trang_moi)
     {
@@ -453,6 +503,51 @@ public partial class XL_LUU_TRU
             Xu_ly.Encoding = System.Text.Encoding.UTF8;
             var Tham_so = $"Ma_so_Xu_ly=GHI_TINH_TRANG_MOI&Ma_so_Phieu_dat={Ma_so_Phieu_dat}&Tinh_trang_moi={Tinh_trang_moi}";
             var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
+
+            var Chuoi_XML_Kq = Xu_ly.DownloadString(Dia_chi_Xu_ly).Trim();
+            var Tai_lieu = new XmlDocument();
+            Tai_lieu.LoadXml(Chuoi_XML_Kq);
+            Kq = Tai_lieu.DocumentElement.GetAttribute("Kq");
+        }
+        catch (Exception Loi)
+        {
+            Kq = Loi.Message;
+        }
+
+        return Kq;
+    }
+
+    public static string Ghi_Thay_doi_So_luong_Ton(XmlElement Danh_sach_Laptop, string Dia_chi_Phan_he)
+    {
+        var Kq = "OK";
+        try
+        {
+            var Xu_ly = new WebClient();
+            Xu_ly.Encoding = System.Text.Encoding.UTF8;
+            var Tham_so = $"Ma_so_Xu_ly=GHI_THAY_DOI_SO_LUONG_TON_THEO_PHIEU_DAT";
+            var Dia_chi_Xu_ly = $"{Dia_chi_Phan_he}?{Tham_so}";
+            var Chuoi_XML_Kq = Xu_ly.UploadString(Dia_chi_Xu_ly, Danh_sach_Laptop.OuterXml);
+            var Tai_lieu = new XmlDocument();
+            Tai_lieu.LoadXml(Chuoi_XML_Kq);
+            Kq = Tai_lieu.DocumentElement.GetAttribute("Kq");
+        }
+        catch (Exception Loi)
+        {
+            Kq = Loi.Message;
+        }
+        return Kq;
+    }
+
+    public static string Ghi_Tinh_trang_moi_Phan_he_Quan_ly_Giao_hang(string Ma_so_Phieu_dat, string Tinh_trang_moi)
+    {
+        var Kq = "OK";
+
+        try
+        {
+            var Xu_ly = new WebClient();
+            Xu_ly.Encoding = System.Text.Encoding.UTF8;
+            var Tham_so = $"Ma_so_Xu_ly=GHI_TINH_TRANG_MOI&Ma_so_Phieu_dat={Ma_so_Phieu_dat}&Tinh_trang_moi={Tinh_trang_moi}";
+            var Dia_chi_Xu_ly = $"{Dia_chi_Phan_he_Quan_ly_Giao_hang}?{Tham_so}";
 
             var Chuoi_XML_Kq = Xu_ly.DownloadString(Dia_chi_Xu_ly).Trim();
             var Tai_lieu = new XmlDocument();

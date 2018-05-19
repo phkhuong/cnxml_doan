@@ -34,7 +34,7 @@ using System.Xml;
 //     Danh_sach_Cua_hang:
 //       * Cua_hang:Ma_so,Ten, Dia_chi, So_dien_thoai
 //   Danh_sach_Laptop: 
-//      * Laptop :Ma_so,Ten,Don_gia_Ban,CPU,Loai_Ram,Card_Man_hinh_Onboard,He_dieu_hanh,Trong_luong,Bao_hanh
+//      * Laptop :Ma_so,Ten,Don_gia_Ban,CPU,Loai_Ram,Card_Man_hinh_Onboard,He_dieu_hanh,Trong_luong,Bao_hanh, So_luong_Ton
 //          Nhom_Lap_top:Ma_so,Ten
 //          Tinh_nang:Ma_so,Ten
 //          CPU_Series:Ma_so,Ten

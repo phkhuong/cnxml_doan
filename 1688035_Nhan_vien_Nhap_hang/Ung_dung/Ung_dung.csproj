@@ -93,6 +93,7 @@
     <Content Include="1-Man_hinh_Giao_dien\MH_Chinh.cshtml" />
     <Content Include="1-Man_hinh_Giao_dien\MH_Chi_tiet_San_pham.cshtml" />
     <Content Include="1-Man_hinh_Giao_dien\MH_Dang_nhap.cshtml" />
+    <Content Include="1-Dich_vu_Giao_tiep\DV_Chinh.cshtml" />
     <None Include="packages.config" />
     <Content Include="ViewPage1.cshtml" />
     <None Include="Web.Debug.config">
